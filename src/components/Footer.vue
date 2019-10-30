@@ -1,36 +1,50 @@
 <template>
-    <footer>
-        <div class="social">
-        <a href="https://www.linkedin.com/in/robertocinetto/" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.328 20"><defs></defs><path class="a" d="M6.166,5.968V4.348a.846.846,0,0,1,.87-.949H9.289V0H6.206A3.9,3.9,0,0,0,1.976,4.19V6.008H0V10H2.016V20H6.008V10H8.972l.119-1.581.237-2.411H6.166Z"/></svg>
-        </a>
-        <a href="https://www.facebook.com/Roberto.Cina.Cinetto" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><defs></defs><path class="a" d="M0,10.2V20H4.653V6.667H0Zm19.866.537c-.313-2.506-1.477-4.116-4.877-4.116-2.013,0-3.356.716-3.893,1.79h-.045V6.622H7.338V19.955H11.23V13.378c0-1.745.358-3.4,2.461-3.4,2.148,0,2.327,1.969,2.327,3.535V20H20V12.662a13.435,13.435,0,0,0-.134-1.924ZM2.327,0A2.311,2.311,0,0,0,0,2.327,2.311,2.311,0,0,0,2.327,4.653,2.311,2.311,0,0,0,4.653,2.327,2.311,2.311,0,0,0,2.327,0Z"/></svg>
-        </a>
-        </div>
-    </footer>
+  <footer>
+    <div class="social">
+      <a href="https://www.linkedin.com/in/robertocinetto/" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.328 20">
+          <defs></defs>
+          <path
+            class="a"
+            d="M6.166,5.968V4.348a.846.846,0,0,1,.87-.949H9.289V0H6.206A3.9,3.9,0,0,0,1.976,4.19V6.008H0V10H2.016V20H6.008V10H8.972l.119-1.581.237-2.411H6.166Z"
+          ></path>
+        </svg>
+      </a>
+      <a href="https://www.facebook.com/Roberto.Cina.Cinetto" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <defs></defs>
+          <path
+            class="a"
+            d="M0,10.2V20H4.653V6.667H0Zm19.866.537c-.313-2.506-1.477-4.116-4.877-4.116-2.013,0-3.356.716-3.893,1.79h-.045V6.622H7.338V19.955H11.23V13.378c0-1.745.358-3.4,2.461-3.4,2.148,0,2.327,1.969,2.327,3.535V20H20V12.662a13.435,13.435,0,0,0-.134-1.924ZM2.327,0A2.311,2.311,0,0,0,0,2.327,2.311,2.311,0,0,0,2.327,4.653,2.311,2.311,0,0,0,4.653,2.327,2.311,2.311,0,0,0,2.327,0Z"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </footer>
 </template>
 
 <script>
 export default {
-    name: 'footer'
-}
+  name: "footer"
+};
 </script>
 
-<style lang="scss">
-
-svg .a{fill:#ddd;fill-rule:evenodd;}
+<style lang="scss" scoped>
+svg .a {
+  fill: #ddd;
+  fill-rule: evenodd;
+}
 
 .social {
   position: absolute;
   padding: 20px;
   bottom: 0;
-  right:0;
+  right: 0;
 
   a {
     padding: 10px;
     svg path {
-      transition: fill $transitions-time ease-in-out; 
+      transition: fill $transitions-time ease-in-out;
     }
     &:hover svg path {
       fill: $yellow;
@@ -41,5 +55,4 @@ svg .a{fill:#ddd;fill-rule:evenodd;}
     height: 20px;
   }
 }
-
 </style>
