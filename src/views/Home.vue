@@ -1,5 +1,23 @@
 <template>
   <section class="home container">
+    <vue-particles
+      class="particles"
+      color="#dedede"
+      :particleOpacity="0.7"
+      :particlesNumber="60"
+      shapeType="circle"
+      :particleSize="1.2"
+      linesColor="#dedede"
+      :linesWidth="0"
+      :lineLinked="false"
+      :lineOpacity="0.1"
+      :linesDistance="150"
+      :moveSpeed=".3"
+      :hoverEffect="true"
+      hoverMode="grab"
+      :clickEffect="true"
+      clickMode="repulse"
+    ></vue-particles>
     <div class="row">
       <div class="col-sm-12 d-flex justify-content-center align-items-center flex-column">
         <img class="img-fluid" id="logo" src="@/assets/logo-roberto-cinetto-bianco.svg" alt>
@@ -84,5 +102,11 @@ a.btn {
 
 #logo {
   height: 120px;
+}
+
+.particles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 </style>
