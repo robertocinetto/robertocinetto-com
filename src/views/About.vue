@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <SidebarLayout>
+    <h1>Pagina about</h1>
+  </SidebarLayout>
 </template>
+
+<script>
+import SidebarLayout from "@/layouts/SidebarLayout";
+export default {
+  name: "About",
+  components: { SidebarLayout }
+};
+</script>
+
+<style>
+</style>
