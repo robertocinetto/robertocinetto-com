@@ -104,20 +104,20 @@ export default {
   components: { HomeLayout },
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   methods: {
     setLocale(locale) {
       this.$i18n.locale = locale;
       this.$router.push({
-        params: { lang: locale }
+        params: { lang: locale },
       });
     },
     isCurrentLocale(locale) {
       return this.$i18n.locale === locale;
-    }
-  }
+    },
+  },
 };
 </script>
 
