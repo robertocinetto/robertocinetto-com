@@ -1,8 +1,10 @@
 import Vue from "vue";
+import VueMeta from "vue-meta";
 import Router from "vue-router";
 import i18n from "./i18n";
 
 Vue.use(Router);
+Vue.use(VueMeta);
 
 export default new Router({
   mode: "history",
@@ -10,27 +12,27 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: `/${i18n.locale}`
+      redirect: `/${i18n.locale}`,
     },
     {
       path: "/:lang",
       component: {
         render(c) {
           return c("router-view");
-        }
+        },
       },
       children: [
         {
           path: "/",
           name: "home",
-          component: () => import("@/views/Home.vue")
+          component: () => import("@/views/Home.vue"),
         },
         {
           path: "about",
           name: "about",
-          component: () => import("@/views/About.vue")
-        }
-      ]
-    }
-  ]
+          component: () => import("@/views/About.vue"),
+        },
+      ],
+    },
+  ],
 });
