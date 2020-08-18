@@ -9,8 +9,7 @@
               @click.prevent="setLocale('en')"
               class="p-2"
               :class="{ active: isCurrentLocale('en') }"
-              >EN</a
-            >
+            >EN</a>
           </span>
           <span>
             <a
@@ -18,8 +17,7 @@
               @click.prevent="setLocale('it')"
               class="p-2"
               :class="{ active: isCurrentLocale('it') }"
-              >IT</a
-            >
+            >IT</a>
           </span>
         </div>
         <vue-particles
@@ -41,36 +39,29 @@
           clickMode="repulse"
         ></vue-particles>
         <div class="row">
-          <div
-            class="col-sm-12 d-flex justify-content-center align-items-center flex-column"
-          >
-            <img
-              class="img-fluid"
-              id="logo"
-              src="@/assets/logo-roberto-cinetto-bianco.svg"
-              alt
-            />
+          <div class="col-sm-12 d-flex justify-content-center align-items-center flex-column">
+            <img class="img-fluid" id="logo" src="@/assets/logo-roberto-cinetto-bianco.svg" alt />
             <div class="contact d-flex align-items-center flex-column">
               <span>
                 email:
-                <a class="email" href="mailto:roberto.cinetto@gmail.com"
-                  >roberto.cinetto@gmail.com</a
-                >
+                <a
+                  class="email"
+                  href="mailto:roberto.cinetto@gmail.com"
+                >roberto.cinetto@gmail.com</a>
               </span>
               <span>
-                tel:
-                <a class="tel" href="tel:+393494955483">349 49 55 483</a>
+                {{ $t('home.phone')}}:
+                <a
+                  v-if="isCurrentLocale('it')"
+                  class="tel"
+                  href="tel:+393494955483"
+                >+39 349 49 55 483</a>
+                <a v-else class="tel" href="tel:+12368869279">+1 236 886 9279</a>
               </span>
               <div class="social">
                 <p>{{ $t("home.catch_me") }}</p>
-                <a
-                  href="https://www.linkedin.com/in/robertocinetto/"
-                  target="_blank"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 9.328 20"
-                  >
+                <a href="https://www.linkedin.com/in/robertocinetto/" target="_blank">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.328 20">
                     <defs />
                     <path
                       class="a"
@@ -78,10 +69,7 @@
                     />
                   </svg>
                 </a>
-                <a
-                  href="https://www.facebook.com/Roberto.Cina.Cinetto"
-                  target="_blank"
-                >
+                <a href="https://www.facebook.com/Roberto.Cina.Cinetto" target="_blank">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                     <defs />
                     <path

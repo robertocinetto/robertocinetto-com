@@ -3,6 +3,7 @@
     "title": "Roberto Cinetto - Personal Portfolio Website",
     "description": "Software developer in Vancouver (CA). I like stuff like React, Vue, Redux and PWA. This is my portfolio website.",
     "profile": "Profile",
+    "phone": "phone",
     "catch_me": "You can get in touch with me on:"
   }
 }
