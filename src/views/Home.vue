@@ -163,7 +163,7 @@ export default {
 <style scoped lang="scss">
 .home-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),
-    url("~@/assets/home-bg.jpg") no-repeat center center;
+    url("~@/assets/home-bg.webp") no-repeat center center;
   background-size: cover;
 }
 .home {
