@@ -5,5 +5,9 @@
     "profile": "Profilo",
     "phone": "tel",
     "catch_me": "Puoi trovarmi anche su:"
+  },
+  "profile": {
+    "title": "Un po' di me",
+    "description": "Andiamo dritti al punto: frontend con <strong>ReactJS</strong> e <strong>VueJS</strong>, static websites con <strong>Gatsby</strong> e per piccoli progetti utilizzo <strong>WordPress</strong>. Non ti piace WordPress? Non mi importa. É lavoro!"
   }
 }

@@ -117,12 +117,6 @@
             <a href="#profile" v-smooth-scroll>{{ $t("home.profile") }}</a>
             <!-- <router-link :to="`/${$i18n.locale}/cv-resume`">{{ $t('home.profile') }}</router-link> -->
           </span>
-          <!-- <span>
-            <a href="#">Experiments</a>
-          </span>
-          <span>
-            <a href="#">Blog</a>
-          </span>-->
         </div>
       </transition>
     </div>
