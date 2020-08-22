@@ -24,7 +24,7 @@
         </div>
         <vue-particles
           class="particles"
-          color="#dedede"
+          color="#ffffff"
           :particleOpacity="0.7"
           :particlesNumber="60"
           shapeType="circle"
@@ -34,7 +34,7 @@
           :lineLinked="false"
           :lineOpacity="0.1"
           :linesDistance="150"
-          :moveSpeed="0.3"
+          :moveSpeed="1"
           :hoverEffect="true"
           hoverMode="grab"
           :clickEffect="true"
