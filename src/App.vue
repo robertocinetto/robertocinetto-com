@@ -60,6 +60,10 @@ strong {
   color: $white;
 }
 
+li {
+  list-style-image: url("~@/assets/check.svg");
+}
+
 section {
   padding-top: 50px;
   padding-bottom: 50px;
