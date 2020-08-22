@@ -248,7 +248,7 @@ a.btn {
   border: solid white;
   border-width: 0 2px 2px 0;
   display: block;
-  padding: 6px;
+  padding: 16px;
   position: absolute;
   bottom: 20px;
   width: 20px;
