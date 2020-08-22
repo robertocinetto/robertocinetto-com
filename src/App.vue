@@ -1,13 +1,13 @@
 <template>
   <div>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
 <script>
 export default {
   name: "app",
-  components: {}
+  components: {},
 };
 </script>
 
@@ -20,7 +20,7 @@ body {
   height: 100vh;
   color: $color;
   font-family: $font-family;
-  font-size: 16px;
+  font-size: 18px;
 
   &::before {
     content: "";
@@ -29,5 +29,42 @@ body {
     background-color: $yellow;
     position: absolute;
   }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: white;
+}
+
+h2 {
+  margin-top: 40px;
+}
+
+h3 {
+  text-decoration: underline;
+  text-decoration-color: $yellow;
+
+  &::after {
+    content: "";
+    border: 1px solid #ffcc00;
+    position: absolute;
+    height: 100%;
+    right: 0;
+  }
+}
+
+strong {
+  font-weight: 600;
+  color: $white;
+}
+
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.no-margin {
 }
 </style>

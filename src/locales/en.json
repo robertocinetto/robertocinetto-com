@@ -1,9 +1,13 @@
 {
   "home": {
-    "title": "Roberto Cinetto - Personal Portfolio Website",
-    "description": "Software developer in Vancouver (CA). I like stuff like React, Vue, Redux and PWA. This is my portfolio website.",
+    "meta-title": "Roberto Cinetto - Personal Portfolio Website",
+    "meta-description": "Software developer in Vancouver (CA). I like stuff like React, Vue, Redux and PWA. This is my portfolio website.",
     "profile": "Profile",
     "phone": "phone",
     "catch_me": "You can get in touch with me on:"
+  },
+  "profile": {
+    "title": "Something about me",
+    "description": "Let's get straigth to the main poin: frontend with <strong>ReactJS</strong> and <strong>VueJS</strong>, static site with <strong>Gatsby</strong> and for smal website projects I use <strong>WordPress</strong>. Don't you like WordPress? I don't care mate. It is business!"
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <HomeLayout>
-    <div class="home-container">
-      <section class="home container">
+    <div class="home-bg">
+      <section class="home">
         <div class="locale-changer">
           <span>
             <a
@@ -38,75 +38,83 @@
           :clickEffect="true"
           clickMode="repulse"
         ></vue-particles>
-        <div class="row">
-          <div class="col-sm-12 d-flex justify-content-center align-items-center flex-column">
-            <img class="img-fluid" id="logo" src="@/assets/logo-roberto-cinetto-bianco.svg" alt />
-            <div class="contact d-flex align-items-center flex-column">
-              <span>
-                email:
-                <a
-                  class="email"
-                  href="mailto:roberto.cinetto@gmail.com"
-                >roberto.cinetto@gmail.com</a>
-              </span>
-              <span>
-                {{ $t('home.phone')}}:
-                <a
-                  v-if="isCurrentLocale('it')"
-                  class="tel"
-                  href="tel:+393494955483"
-                >+39 349 49 55 483</a>
-                <a v-else class="tel" href="tel:+12368869279">+1 236 886 9279</a>
-              </span>
-              <div class="social">
-                <p>{{ $t("home.catch_me") }}</p>
-                <a href="https://www.linkedin.com/in/robertocinetto/" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.328 20">
-                    <defs />
-                    <path
-                      class="a"
-                      d="M6.166,5.968V4.348a.846.846,0,0,1,.87-.949H9.289V0H6.206A3.9,3.9,0,0,0,1.976,4.19V6.008H0V10H2.016V20H6.008V10H8.972l.119-1.581.237-2.411H6.166Z"
-                    />
-                  </svg>
-                </a>
-                <a href="https://www.facebook.com/Roberto.Cina.Cinetto" target="_blank">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                    <defs />
-                    <path
-                      class="a"
-                      d="M0,10.2V20H4.653V6.667H0Zm19.866.537c-.313-2.506-1.477-4.116-4.877-4.116-2.013,0-3.356.716-3.893,1.79h-.045V6.622H7.338V19.955H11.23V13.378c0-1.745.358-3.4,2.461-3.4,2.148,0,2.327,1.969,2.327,3.535V20H20V12.662a13.435,13.435,0,0,0-.134-1.924ZM2.327,0A2.311,2.311,0,0,0,0,2.327,2.311,2.311,0,0,0,2.327,4.653,2.311,2.311,0,0,0,4.653,2.327,2.311,2.311,0,0,0,2.327,0Z"
-                    />
-                  </svg>
-                </a>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 d-flex justify-content-center align-items-center flex-column">
+              <img class="img-fluid" id="logo" src="@/assets/logo-roberto-cinetto-bianco.svg" alt />
+              <div class="contact d-flex align-items-center flex-column">
+                <span>
+                  email:
+                  <a
+                    class="email"
+                    href="mailto:roberto.cinetto@gmail.com"
+                  >roberto.cinetto@gmail.com</a>
+                </span>
+                <span>
+                  {{ $t("home.phone") }}:
+                  <a
+                    v-if="isCurrentLocale('it')"
+                    class="tel"
+                    href="tel:+393494955483"
+                  >+39 349 49 55 483</a>
+                  <a v-else class="tel" href="tel:+12368869279">+1 236 886 9279</a>
+                </span>
+                <div class="social">
+                  <p>{{ $t("home.catch_me") }}</p>
+                  <a href="https://www.linkedin.com/in/robertocinetto/" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.328 20">
+                      <defs />
+                      <path
+                        class="a"
+                        d="M6.166,5.968V4.348a.846.846,0,0,1,.87-.949H9.289V0H6.206A3.9,3.9,0,0,0,1.976,4.19V6.008H0V10H2.016V20H6.008V10H8.972l.119-1.581.237-2.411H6.166Z"
+                      />
+                    </svg>
+                  </a>
+                  <a href="https://www.facebook.com/Roberto.Cina.Cinetto" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <defs />
+                      <path
+                        class="a"
+                        d="M0,10.2V20H4.653V6.667H0Zm19.866.537c-.313-2.506-1.477-4.116-4.877-4.116-2.013,0-3.356.716-3.893,1.79h-.045V6.622H7.338V19.955H11.23V13.378c0-1.745.358-3.4,2.461-3.4,2.148,0,2.327,1.969,2.327,3.535V20H20V12.662a13.435,13.435,0,0,0-.134-1.924ZM2.327,0A2.311,2.311,0,0,0,0,2.327,2.311,2.311,0,0,0,2.327,4.653,2.311,2.311,0,0,0,4.653,2.327,2.311,2.311,0,0,0,2.327,0Z"
+                      />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- <i @click="show=!show" class="show-menu arrow up" v-bind:class="{ 'hide-arrow': show}"></i> -->
+        <i @click="show = !show" class="show-menu arrow up" v-bind:class="{ 'hide-arrow': show }"></i>
       </section>
-      <!-- <transition name="fade-menu">
+      <transition name="fade-menu">
         <div v-if="show" class="bottom-menu">
           <span>
-            <router-link :to="`/${$i18n.locale}/about`">{{ $t('home.profile') }}</router-link>
+            <a href="#cv-resume">{{ $t("home.profile") }}</a>
+            <!-- <router-link :to="`/${$i18n.locale}/cv-resume`">{{ $t('home.profile') }}</router-link> -->
           </span>
-          <span>
+          <!-- <span>
             <a href="#">Experiments</a>
           </span>
           <span>
             <a href="#">Blog</a>
-          </span>
+          </span>-->
         </div>
-      </transition>-->
+      </transition>
     </div>
+    <Profile />
+    <Resume />
   </HomeLayout>
 </template>
 
 <script>
 import HomeLayout from "@/layouts/HomeLayout.vue";
+import Profile from "@/components/Profile.vue";
+import Resume from "@/components/Resume.vue";
+
 export default {
   name: "home",
-  components: { HomeLayout },
+  components: { HomeLayout, Profile, Resume },
   data() {
     return {
       show: false,
@@ -125,15 +133,17 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.$t("home.title"),
-      meta: [{ name: "description", content: this.$t("home.description") }],
+      title: this.$t("home.meta-title"),
+      meta: [
+        { name: "description", content: this.$t("home.meta-description") },
+      ],
     };
   },
 };
 </script>
 
 <style scoped lang="scss">
-.home-container {
+.home-bg {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.4)),
     url("~@/assets/home-bg.jpg") no-repeat center center;
   background-size: cover;
