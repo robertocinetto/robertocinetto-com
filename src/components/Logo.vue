@@ -200,5 +200,6 @@
 <style lang="stylus" scoped>
 #logo {
   height: 120px;
+  width: 100%;
 }
 </style>
