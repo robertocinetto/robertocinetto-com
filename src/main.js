@@ -7,12 +7,14 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import VueParticles from "vue-particles";
+import VueSmoothScroll from "vue2-smooth-scroll";
 import i18n from "./i18n";
 
 library.add(faHamburger);
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 Vue.config.productionTip = false;
 Vue.use(VueParticles);
+Vue.use(VueSmoothScroll);
 
 router.beforeEach((to, from, next) => {
   let language = to.params.lang;
