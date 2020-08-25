@@ -60,7 +60,7 @@
             <a
               href="https://todolistit.robertocinetto.com/"
               target="_blank"
-              class="btn btn-warning mt-3"
+              class="btn btn-warning mt-3 mb-5"
             >GO TO THE PROJECT</a>
           </div>
           <div class="col-sm-6 d-flex justify-content-center">
