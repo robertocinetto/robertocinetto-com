@@ -112,4 +112,17 @@ export default {};
 .resume {
   background: $gray-900;
 }
+
+h3 {
+  text-decoration: underline;
+  text-decoration-color: $yellow;
+
+  &::after {
+    content: "";
+    border: 1px solid #ffcc00;
+    position: absolute;
+    height: 100%;
+    right: 0;
+  }
+}
 </style>

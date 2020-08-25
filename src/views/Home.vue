@@ -98,6 +98,8 @@
     </div>
     <Profile />
     <Resume />
+    <Portfolio />
+    <Footer />
   </HomeLayout>
 </template>
 
@@ -106,10 +108,12 @@ import Logo from "@/components/Logo.vue";
 import HomeLayout from "@/layouts/HomeLayout.vue";
 import Profile from "@/components/Profile.vue";
 import Resume from "@/components/Resume.vue";
+import Portfolio from "@/components/Portfolio.vue";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "home",
-  components: { HomeLayout, Profile, Resume, Logo },
+  components: { Logo, HomeLayout, Profile, Resume, Portfolio, Footer },
   data() {
     return {
       show: false,

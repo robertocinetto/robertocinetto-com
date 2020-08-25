@@ -42,26 +42,17 @@ h2 {
   margin-top: 40px;
 }
 
-h3 {
-  text-decoration: underline;
-  text-decoration-color: $yellow;
-
-  &::after {
-    content: "";
-    border: 1px solid #ffcc00;
-    position: absolute;
-    height: 100%;
-    right: 0;
-  }
-}
-
 strong {
   font-weight: 600;
   color: $white;
 }
 
+ul {
+  padding-left: 0;
+}
 li {
   list-style-image: url("~@/assets/check.svg");
+  list-style-position: inside;
 }
 
 section {
