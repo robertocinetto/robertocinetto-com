@@ -1,6 +1,6 @@
 <template>
   <HomeLayout>
-    <div class="home-bg">
+    <div id="home" class="home-bg">
       <section class="home">
         <div class="locale-changer">
           <span>
@@ -91,10 +91,16 @@
         <div v-if="show" class="bottom-menu">
           <span>
             <a href="#profile" v-smooth-scroll>{{ $t("home.profile") }}</a>
+            <a href="#portfolio" v-smooth-scroll>Portfolio</a>
             <!-- <router-link :to="`/${$i18n.locale}/cv-resume`">{{ $t('home.profile') }}</router-link> -->
           </span>
         </div>
       </transition>
+    </div>
+    <div id="back-top">
+      <a href="#home" v-smooth-scroll>
+        <i class="arrow up" v-on:scroll.native="handleScroll"></i>
+      </a>
     </div>
     <Profile />
     <Resume />
@@ -265,5 +271,27 @@ svg .a {
   transform: rotate(45deg);
   bottom: 60px;
   transition: all 0.5s;
+}
+
+#back-top a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  .arrow {
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    display: block;
+    padding: 9px;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    transform: rotate(-135deg);
+  }
 }
 </style>
