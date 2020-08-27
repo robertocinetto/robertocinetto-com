@@ -177,7 +177,7 @@
                 <strong>GIT, Netlify</strong>
               </li>
             </ul>
-            <a href="#" class="btn btn-warning mt-3 mb-5">IN DEVELOPMENT</a>
+            <a v-on:click.prevent href="#" class="btn btn-warning mt-3 mb-5">IN DEVELOPMENT</a>
             <div class="phone smaller">
               <div class="screen">
                 <img loading="lazy" src="@/assets/portfolio/4-biorfarm.webp" width="400px" />
