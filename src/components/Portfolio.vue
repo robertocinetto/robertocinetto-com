@@ -9,7 +9,7 @@
     </div>
     <div class="todolistit">
       <div class="container">
-        <div class="row item">
+        <div class="row item-row">
           <div class="col-sm-6 text-center">
             <h2 class="mb-2">Todolist</h2>
             <h5 class="mb-4">
@@ -70,7 +70,122 @@
             </div>
             <div class="phone">
               <div class="screen">
-                <img src="@/assets/portfolio/1-todolistit-login.webp" width="400px" />
+                <img loading="lazy" src="@/assets/portfolio/1-todolistit-login.webp" width="400px" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="il-veneto-imbruttito col-sm-4 item">
+            <h2 class="mb-2">Il Veneto Imbruttito</h2>
+            <h5 class="mb-4">
+              Project type:
+              <strong>Real project</strong>
+            </h5>
+            <p>Basic e-commerce built in WordPress and WooCommerce</p>
+            <ul>
+              <li>
+                CMS:
+                <strong>WordPress</strong>
+              </li>
+              <li>
+                E-commerce:
+                <strong>WooCommerce</strong>
+              </li>
+              <li>
+                Deploy system:
+                <strong>GIT, Capistrano</strong>
+              </li>
+              <li>
+                Hosting, cache and extra:
+                <strong>Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong>
+              </li>
+            </ul>
+            <a
+              href="https://shop.ilvenetoimbruttito.com/"
+              target="_blank"
+              rel="nofollow"
+              class="btn btn-warning mt-3 mb-5"
+            >GO TO THE PROJECT</a>
+            <div class="phone smaller">
+              <div class="screen">
+                <img
+                  loading="lazy"
+                  src="@/assets/portfolio/2-il-veneto-imbruttito.webp"
+                  width="400px"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="barichello col-sm-4 item">
+            <h2 class="mb-2">Barichello Srl</h2>
+            <h5 class="mb-4">
+              Project type:
+              <strong>Real project</strong>
+            </h5>
+            <p>Company website built with WordPress</p>
+            <ul>
+              <li>
+                CMS:
+                <strong>WordPress</strong>
+              </li>
+              <li>
+                Plugin
+                <strong>WPML</strong>
+              </li>
+              <li>
+                Deploy system:
+                <strong>GIT, Capistrano</strong>
+              </li>
+              <li>
+                Hosting, cache and extra:
+                <strong>Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong>
+              </li>
+            </ul>
+            <a
+              href="http://barichello.it/"
+              target="_blank"
+              rel="nofollow"
+              class="btn btn-warning mt-3 mb-5"
+            >GO TO THE PROJECT</a>
+            <div class="phone smaller">
+              <div class="screen">
+                <img loading="lazy" src="@/assets/portfolio/3-barichello-srl.webp" width="400px" />
+              </div>
+            </div>
+          </div>
+
+          <div class="biorfarm col-sm-4 item">
+            <h2 class="mb-2">Biorfarm</h2>
+            <h5 class="mb-4">
+              Project type:
+              <strong>Real project</strong>
+            </h5>
+            <p>Fronted development in React</p>
+            <ul>
+              <li>
+                Frontend:
+                <strong>ReactJS, styled components, atomic design, Slick</strong>
+              </li>
+              <li>
+                Deploy system:
+                <strong>GIT, Netlify</strong>
+              </li>
+            </ul>
+            <a
+              href="#"
+              target="_blank"
+              rel="nofollow"
+              class="btn btn-warning mt-3 mb-5"
+            >IN DEVELOPMENT</a>
+            <div class="phone smaller">
+              <div class="screen">
+                <img loading="lazy" src="@/assets/portfolio/4-biorfarm.webp" width="400px" />
               </div>
             </div>
           </div>
@@ -89,8 +204,16 @@ export default {};
   background: $gray-900;
 }
 
-.item {
+.item-row {
   padding-top: 60px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: center;
 }
 
 .box {
@@ -134,13 +257,52 @@ export default {};
       width: 100%;
     }
   }
+
+  &.smaller {
+    max-width: 300px;
+    height: 400px;
+
+    .screen {
+      height: 400px;
+    }
+  }
 }
 
 .todolistit {
   background: #6c00d0;
+  background: rgb(132, 0, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(132, 0, 255, 1) 0%,
+    rgba(108, 0, 208, 1) 100%
+  );
+}
 
-  .box-background {
-    background: #6c00d0;
-  }
+.il-veneto-imbruttito {
+  background: #a41a19;
+  background: rgb(164, 26, 25);
+  background: linear-gradient(
+    135deg,
+    rgba(164, 26, 25, 1) 0%,
+    rgba(120, 15, 15, 1) 100%
+  );
+}
+
+.barichello {
+  background: rgb(237, 28, 36);
+  background: linear-gradient(
+    135deg,
+    rgb(165, 17, 22) 0%,
+    rgb(135, 15, 15) 100%
+  );
+}
+
+.biorfarm {
+  background: rgb(106, 210, 50);
+  background: linear-gradient(
+    135deg,
+    rgb(59, 120, 27) 0%,
+    rgb(88, 116, 32) 100%
+  );
 }
 </style>

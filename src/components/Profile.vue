@@ -4,6 +4,7 @@
       <div class="row">
         <div class="col-sm-12 col-md-4 mb-4 text-center text-md-right">
           <img
+            loading="lazy"
             class="profile-img"
             src="@/assets/roberto-cinetto-frontend-web-dev.webp"
             height="150px"

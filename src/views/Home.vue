@@ -97,15 +97,15 @@
         </div>
       </transition>
     </div>
+    <Profile />
+    <Resume />
+    <Portfolio />
+    <Footer />
     <div id="back-top">
       <a href="#home" v-smooth-scroll>
         <i class="arrow up" v-on:scroll.native="handleScroll"></i>
       </a>
     </div>
-    <Profile />
-    <Resume />
-    <Portfolio />
-    <Footer />
   </HomeLayout>
 </template>
 
