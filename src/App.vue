@@ -31,6 +31,18 @@ body {
   }
 }
 
+a {
+  transition: all $transitions-time ease-in-out;
+  color: $grey;
+  border-bottom: 1px solid $grey;
+
+  &:hover {
+    border-color: $yellow;
+    text-decoration: none;
+    color: $yellow;
+  }
+}
+
 h1,
 h2,
 h3,

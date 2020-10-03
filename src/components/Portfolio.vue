@@ -17,7 +17,7 @@
               <strong>Personal example project</strong>
             </h5>
             <svg
-              style="margin-right:-10px;"
+              style="margin-right: -10px"
               width="116"
               height="100"
               viewBox="0 0 116 100"
@@ -41,7 +41,10 @@
                 stroke-dasharray="10 4"
               />
             </svg>
-            <p>A very simple web app design by me, logo and palete at first. Just a few caracteristics of the app:</p>
+            <p>
+              A very simple web app design by me, logo and palete at first. Just
+              a few caracteristics of the app:
+            </p>
             <ul>
               <li>
                 frontend:
@@ -61,7 +64,8 @@
               href="https://todolistit.robertocinetto.com/"
               target="_blank"
               class="btn btn-warning mt-3 mb-5"
-            >GO TO THE PROJECT</a>
+              >GO TO THE PROJECT</a
+            >
           </div>
           <div class="col-sm-6 d-flex justify-content-center">
             <div class="box">
@@ -70,118 +74,270 @@
             </div>
             <div class="phone">
               <div class="screen">
-                <img loading="lazy" src="@/assets/portfolio/1-todolistit-login.webp" width="400px" />
+                <img
+                  loading="lazy"
+                  src="@/assets/portfolio/1-todolistit-login.webp"
+                  width="400px"
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div>
-      <div class="container-fluid">
-        <div class="row">
-          <div class="il-veneto-imbruttito col-sm-4 item">
-            <h2 class="mb-2">Il Veneto Imbruttito</h2>
-            <h5 class="mb-4">
-              Project type:
-              <strong>Real project</strong>
-            </h5>
-            <p>Basic e-commerce built in WordPress and WooCommerce</p>
-            <ul>
-              <li>
-                CMS:
-                <strong>WordPress</strong>
-              </li>
-              <li>
-                E-commerce:
-                <strong>WooCommerce</strong>
-              </li>
-              <li>
-                Deploy system:
-                <strong>GIT, Capistrano</strong>
-              </li>
-              <li>
-                Hosting, cache and extra:
-                <strong>Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong>
-              </li>
-            </ul>
-            <a
-              href="https://shop.ilvenetoimbruttito.com/"
-              target="_blank"
-              rel="nofollow"
-              class="btn btn-warning mt-3 mb-5"
-            >GO TO THE PROJECT</a>
-            <div class="phone smaller">
-              <div class="screen">
-                <img
-                  loading="lazy"
-                  src="@/assets/portfolio/2-il-veneto-imbruttito.webp"
-                  width="400px"
-                />
-              </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="il-veneto-imbruttito col-sm-4 item">
+          <h2 class="mb-2">Il Veneto Imbruttito</h2>
+          <h5 class="mb-4">
+            Project type:
+            <strong>Real project</strong>
+          </h5>
+          <p>Basic e-commerce built in WordPress and WooCommerce</p>
+          <ul>
+            <li>
+              CMS:
+              <strong>WordPress</strong>
+            </li>
+            <li>
+              E-commerce:
+              <strong>WooCommerce</strong>
+            </li>
+            <li>
+              Deploy system:
+              <strong>GIT, Capistrano</strong>
+            </li>
+            <li>
+              Hosting, cache and extra:
+              <strong
+                >Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong
+              >
+            </li>
+          </ul>
+          <a
+            href="https://shop.ilvenetoimbruttito.com/"
+            target="_blank"
+            rel="nofollow"
+            class="btn btn-warning mt-3 mb-5"
+            >GO TO THE PROJECT</a
+          >
+          <div class="phone smaller">
+            <div class="screen">
+              <img
+                loading="lazy"
+                src="@/assets/portfolio/2-il-veneto-imbruttito.webp"
+                width="400px"
+              />
             </div>
           </div>
+        </div>
 
-          <div class="barichello col-sm-4 item">
-            <h2 class="mb-2">Barichello Srl</h2>
-            <h5 class="mb-4">
-              Project type:
-              <strong>Real project</strong>
-            </h5>
-            <p>Company website built with WordPress</p>
-            <ul>
-              <li>
-                CMS:
-                <strong>WordPress</strong>
-              </li>
-              <li>
-                Plugin
-                <strong>WPML</strong>
-              </li>
-              <li>
-                Deploy system:
-                <strong>GIT, Capistrano</strong>
-              </li>
-              <li>
-                Hosting, cache and extra:
-                <strong>Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong>
-              </li>
-            </ul>
-            <a
-              href="http://barichello.it/"
-              target="_blank"
-              rel="nofollow"
-              class="btn btn-warning mt-3 mb-5"
-            >GO TO THE PROJECT</a>
-            <div class="phone smaller">
-              <div class="screen">
-                <img loading="lazy" src="@/assets/portfolio/3-barichello-srl.webp" width="400px" />
-              </div>
+        <div class="barichello col-sm-4 item">
+          <h2 class="mb-2">Barichello Srl</h2>
+          <h5 class="mb-4">
+            Project type:
+            <strong>Real project</strong>
+          </h5>
+          <p>Company website built with WordPress</p>
+          <ul>
+            <li>
+              CMS:
+              <strong>WordPress</strong>
+            </li>
+            <li>
+              Plugin
+              <strong>WPML</strong>
+            </li>
+            <li>
+              Deploy system:
+              <strong>GIT, Capistrano</strong>
+            </li>
+            <li>
+              Hosting, cache and extra:
+              <strong
+                >Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong
+              >
+            </li>
+          </ul>
+          <a
+            href="http://barichello.it/"
+            target="_blank"
+            rel="nofollow"
+            class="btn btn-warning mt-3 mb-5"
+            >GO TO THE PROJECT</a
+          >
+          <div class="phone smaller">
+            <div class="screen">
+              <img
+                loading="lazy"
+                src="@/assets/portfolio/3-barichello-srl.webp"
+                width="400px"
+              />
             </div>
           </div>
+        </div>
 
-          <div class="biorfarm col-sm-4 item">
-            <h2 class="mb-2">Biorfarm</h2>
-            <h5 class="mb-4">
-              Project type:
-              <strong>Real project</strong>
-            </h5>
-            <p>Fronted development in React</p>
-            <ul>
-              <li>
-                Frontend:
-                <strong>ReactJS, styled components, atomic design, Slick</strong>
-              </li>
-              <li>
-                Deploy system:
-                <strong>GIT, Netlify</strong>
-              </li>
-            </ul>
-            <a v-on:click.prevent href="#" class="btn btn-warning mt-3 mb-5">IN DEVELOPMENT</a>
-            <div class="phone smaller">
-              <div class="screen">
-                <img loading="lazy" src="@/assets/portfolio/4-biorfarm.webp" width="400px" />
-              </div>
+        <div class="biorfarm col-sm-4 item">
+          <h2 class="mb-2">Biorfarm</h2>
+          <h5 class="mb-4">
+            Project type:
+            <strong>Real project</strong>
+          </h5>
+          <p>Fronted development in React</p>
+          <ul>
+            <li>
+              Frontend:
+              <strong>ReactJS, styled components, atomic design, Slick</strong>
+            </li>
+            <li>
+              Deploy system:
+              <strong>GIT, Netlify</strong>
+            </li>
+          </ul>
+          <a v-on:click.prevent href="#" class="btn btn-warning mt-3 mb-5"
+            >IN DEVELOPMENT</a
+          >
+          <div class="phone smaller">
+            <div class="screen">
+              <img
+                loading="lazy"
+                src="@/assets/portfolio/4-biorfarm.webp"
+                width="400px"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="interpolimeri col-sm-4 item">
+          <h2 class="mb-2">Interpolimeri Srl</h2>
+          <h5 class="mb-4">
+            Project type:
+            <strong>Real project</strong>
+          </h5>
+          <p>Company website built with WordPress, Company photoshoot</p>
+          <ul>
+            <li>
+              CMS:
+              <strong>WordPress</strong>
+            </li>
+            <li>
+              Plugin
+              <strong>WPML</strong>
+            </li>
+            <li>
+              Deploy system:
+              <strong>GIT, Capistrano</strong>
+            </li>
+            <li>
+              Hosting, cache and extra:
+              <strong
+                >Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong
+              >
+            </li>
+          </ul>
+          <a
+            href="https://www.interpolimeri.com/"
+            target="_blank"
+            rel="nofollow"
+            class="btn btn-warning mt-3 mb-5"
+            >GO TO THE PROJECT</a
+          >
+          <div class="phone smaller">
+            <div class="screen">
+              <img
+                loading="lazy"
+                src="@/assets/portfolio/5-interpolimeri.webp"
+                width="400px"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="eternoivica col-sm-4 item">
+          <h2 class="mb-2">Eterno Ivica Srl</h2>
+          <h5 class="mb-4">
+            Project type:
+            <strong>Real project</strong>
+          </h5>
+          <p>Full web marketing project</p>
+          <ul>
+            <li>
+              Backend:
+              <strong>Ruby on Rails</strong>
+            </li>
+            <li>
+              Frontend:
+              <strong>Bootstrap, HTML, SCSS</strong>
+            </li>
+            <li>
+              Deploy system:
+              <strong>GIT, Capistrano</strong>
+            </li>
+            <li>
+              Hosting, cache and extra:
+              <strong>Hetzner</strong>
+            </li>
+          </ul>
+          <a
+            href="https://eternoivica.com/"
+            target="_blank"
+            rel="nofollow"
+            class="btn btn-warning mt-3 mb-5"
+            >GO TO THE PROJECT</a
+          >
+          <div class="phone smaller">
+            <div class="screen">
+              <img
+                loading="lazy"
+                src="@/assets/portfolio/6-eternoivica.webp"
+                width="400px"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="marcotemporin col-sm-4 item">
+          <h2 class="mb-2">Dr. Marco Temporin</h2>
+          <h5 class="mb-4">
+            Project type:
+            <strong>Real project</strong>
+          </h5>
+          <p>
+            Company website built with WordPress, Company photoshoot, Logo
+            design
+          </p>
+          <ul>
+            <li>
+              CMS:
+              <strong>WordPress</strong>
+            </li>
+            <li>
+              Deploy system:
+              <strong>GIT, Capistrano</strong>
+            </li>
+            <li>
+              Hosting, cache and extra:
+              <strong
+                >Hetzner, managed with Runcloud, W3 Total Cache, Redis</strong
+              >
+            </li>
+          </ul>
+          <a
+            v-on:click.prevent
+            href="https://marcotemporin.it/"
+            class="btn btn-warning mt-3 mb-5"
+            >GO TO THE PROJECT</a
+          >
+          <div class="phone smaller">
+            <div class="screen">
+              <img
+                loading="lazy"
+                src="@/assets/portfolio/7-marcotemporin.webp"
+                width="400px"
+              />
             </div>
           </div>
         </div>
@@ -201,6 +357,7 @@ export default {};
 
 .item-row {
   padding-top: 60px;
+  color: $white;
 }
 
 .item {
@@ -209,6 +366,11 @@ export default {};
   align-items: center;
   justify-content: flex-end;
   text-align: center;
+  color: $white;
+
+  h5 {
+    color: $white;
+  }
 }
 
 .box {
@@ -283,7 +445,8 @@ export default {};
   );
 }
 
-.barichello {
+.barichello,
+.eternoivica {
   background: rgb(237, 28, 36);
   background: linear-gradient(
     135deg,
@@ -298,6 +461,20 @@ export default {};
     135deg,
     rgb(59, 120, 27) 0%,
     rgb(88, 116, 32) 100%
+  );
+}
+
+.interpolimeri {
+  background: rgb(29, 29, 29);
+  background: linear-gradient(135deg, rgb(48, 48, 48) 0%, rgb(0, 0, 0) 100%);
+}
+
+.marcotemporin {
+  background: rgb(255, 183, 0);
+  background: linear-gradient(
+    135deg,
+    rgb(255, 132, 0) 0%,
+    rgb(255, 140, 0) 100%
   );
 }
 </style>

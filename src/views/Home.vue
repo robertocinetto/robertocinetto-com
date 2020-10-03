@@ -182,16 +182,6 @@ export default {
   height: 100vh;
 }
 
-a {
-  transition: all $transitions-time ease-in-out;
-  color: $grey;
-
-  &:hover {
-    text-decoration: none;
-    color: $yellow;
-  }
-}
-
 .contact {
   span {
     margin: 5px 0;
@@ -203,6 +193,7 @@ a {
   text-align: center;
   a {
     padding: 10px;
+    border-bottom: none;
     svg path {
       transition: fill $transitions-time ease-in-out;
     }
@@ -275,6 +266,7 @@ svg .a {
   text-align: center;
 
   a {
+    border-bottom: none;
     color: white;
     text-transform: uppercase;
     padding: 5px 10px;

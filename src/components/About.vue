@@ -7,16 +7,26 @@
         </div>
         <div class="col-sm-12 col-md-8 text-center text-md-left">
           <p>
-            Music: I love it. While I'm working, I always listen to music and as
-            a guitarist I love to play it. Before I moved here in Vancouver, I
-            used to play in clubs with my brother Nicola
-            (https://www.facebook.com/thecinas). I love video games too, but I
-            grow old and it seems that there is always less time to play! And
-            obviously I love the web world: this is what keeps me learning new
-            stuff and be amazed of all the new stuff that are coming out in
-            these last years. I'm a runner and above all I'm a swimmer (I miss
-            it in these crazy times!). But the sports I love to practice are the
-            ones in team.
+            <p>
+              Music: I love it. While I'm working, I always listen to music and as
+              a guitarist I love to play it. Before I moved here in Vancouver, I
+              used to play in clubs with my brother Nicola (<a
+                href="https://www.facebook.com/thecinas"
+                target="_blank"
+                >The Cinas</a
+              >). 
+            </p>
+            <p>
+              I love video games too, but I grow old and it seems that there
+              is always less time to play! And obviously I love the web world:
+              this is what keeps me learning new stuff and be amazed of all the
+              new stuff that are coming out in these last years.
+            </p>
+            <p>
+              I'm a runner and above all I'm a swimmer (I miss it in these crazy
+              times!). But the sports I love to practice are the ones in team.
+            </p>
+            <p>I'm married with Sharaf and we moved in Vancouver in March, 2020. We love this city!</p>
           </p>
         </div>
       </div>
