@@ -9,7 +9,8 @@
               @click.prevent="setLocale('en')"
               class="p-2"
               :class="{ active: isCurrentLocale('en') }"
-            >EN</a>
+              >EN</a
+            >
           </span>
           <span>
             <a
@@ -17,7 +18,8 @@
               @click.prevent="setLocale('it')"
               class="p-2"
               :class="{ active: isCurrentLocale('it') }"
-            >IT</a>
+              >IT</a
+            >
           </span>
         </div>
         <vue-particles
@@ -40,15 +42,16 @@
         ></vue-particles>
         <div class="container">
           <div class="row">
-            <div class="col-sm-12 d-flex justify-content-center align-items-center flex-column">
+            <div
+              class="col-sm-12 d-flex justify-content-center align-items-center flex-column"
+            >
               <Logo />
               <div class="contact d-flex align-items-center flex-column">
                 <span>
                   email:
-                  <a
-                    class="email"
-                    href="mailto:roberto.cinetto@gmail.com"
-                  >roberto.cinetto@gmail.com</a>
+                  <a class="email" href="mailto:roberto.cinetto@gmail.com"
+                    >roberto.cinetto@gmail.com</a
+                  >
                 </span>
                 <span>
                   {{ $t("home.phone") }}:
@@ -56,12 +59,18 @@
                     v-if="isCurrentLocale('it')"
                     class="tel"
                     href="tel:+393494955483"
-                  >+39 349 49 55 483</a>
-                  <a v-else class="tel" href="tel:+12368869279">+1 236 886 9279</a>
+                    >+39 349 49 55 483</a
+                  >
+                  <a v-else class="tel" href="tel:+12368869279"
+                    >+1 236 886 9279</a
+                  >
                 </span>
                 <div class="social">
                   <p>{{ $t("home.catch_me") }}</p>
-                  <a href="https://www.linkedin.com/in/robertocinetto/" target="_blank">
+                  <a
+                    href="https://www.linkedin.com/in/robertocinetto/"
+                    target="_blank"
+                  >
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                       <defs />
                       <path
@@ -70,8 +79,14 @@
                       />
                     </svg>
                   </a>
-                  <a href="https://www.facebook.com/Roberto.Cina.Cinetto" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.328 20">
+                  <a
+                    href="https://www.facebook.com/Roberto.Cina.Cinetto"
+                    target="_blank"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 9.328 20"
+                    >
                       <defs />
                       <path
                         class="a"
@@ -85,7 +100,11 @@
           </div>
         </div>
 
-        <i @click="show = !show" class="show-menu arrow up" v-bind:class="{ 'hide-arrow': show }"></i>
+        <i
+          @click="show = !show"
+          class="show-menu arrow up"
+          v-bind:class="{ 'hide-arrow': show }"
+        ></i>
       </section>
       <transition name="fade-menu">
         <div v-if="show" class="bottom-menu">
@@ -100,6 +119,7 @@
     <Profile />
     <Resume />
     <Portfolio />
+    <About />
     <Footer />
     <div id="back-top">
       <a href="#home" v-smooth-scroll>
@@ -115,11 +135,12 @@ import HomeLayout from "@/layouts/HomeLayout.vue";
 import Profile from "@/components/Profile.vue";
 import Resume from "@/components/Resume.vue";
 import Portfolio from "@/components/Portfolio.vue";
+import About from "@/components/About.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   name: "home",
-  components: { Logo, HomeLayout, Profile, Resume, Portfolio, Footer },
+  components: { Logo, HomeLayout, Profile, Resume, Portfolio, About, Footer },
   data() {
     return {
       show: false,
@@ -210,7 +231,7 @@ a.btn {
 .locale-changer {
   position: absolute;
   top: 10px;
-  right: 5px;
+  left: 15px;
   z-index: 1;
 
   a.active {
