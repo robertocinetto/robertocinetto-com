@@ -111,7 +111,6 @@
           <span>
             <a href="#profile" v-smooth-scroll>{{ $t("home.profile") }}</a>
             <a href="#portfolio" v-smooth-scroll>Portfolio</a>
-            <a href="#experiments" v-smooth-scroll>Experiments</a>
             <!-- <router-link :to="`/${$i18n.locale}/cv-resume`">{{ $t('home.profile') }}</router-link> -->
           </span>
         </div>
@@ -121,7 +120,6 @@
     <Resume />
     <Portfolio />
     <About />
-    <Experiments />
     <Footer />
     <div id="back-top">
       <a href="#home" v-smooth-scroll>
@@ -138,12 +136,11 @@ import Profile from "@/components/Profile.vue";
 import Resume from "@/components/Resume.vue";
 import Portfolio from "@/components/Portfolio.vue";
 import About from "@/components/About.vue";
-import Experiments from "@/components/Experiments.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
   name: "home",
-  components: { Logo, HomeLayout, Profile, Resume, Portfolio, About, Experiments, Footer },
+  components: { Logo, HomeLayout, Profile, Resume, Portfolio, About, Footer },
   data() {
     return {
       show: false,

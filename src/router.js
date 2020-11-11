@@ -27,6 +27,11 @@ export default new Router({
           name: "home",
           component: () => import("@/views/Home.vue"),
         },
+        {
+          path: "/:lang/experiments/experiment-1",
+          name: "experiment-1",
+          component: () => import("@/views/experiments/Experiment-1.vue"),
+        },
       ],
     },
   ],
