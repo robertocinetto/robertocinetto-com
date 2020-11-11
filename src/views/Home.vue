@@ -100,14 +100,8 @@
           </div>
         </div>
 
-        <i
-          @click="show = !show"
-          class="show-menu arrow up"
-          v-bind:class="{ 'hide-arrow': show }"
-        ></i>
       </section>
-      <transition name="fade-menu">
-        <div v-if="show" class="bottom-menu">
+        <div class="bottom-menu">
           <span>
             <a href="#profile" v-smooth-scroll>{{ $t("home.profile") }}</a>
             <a href="#portfolio" v-smooth-scroll>Portfolio</a>
@@ -115,7 +109,6 @@
             <!-- <router-link :to="`/${$i18n.locale}/cv-resume`">{{ $t('home.profile') }}</router-link> -->
           </span>
         </div>
-      </transition>
     </div>
     <Profile />
     <Resume />
@@ -242,21 +235,6 @@ a.btn {
 }
 
 // BOTTOM MENU
-.arrow {
-  border: solid white;
-  border-width: 0 2px 2px 0;
-  display: block;
-  padding: 16px;
-  position: absolute;
-  bottom: 20px;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  transition: all 0.5s;
-}
-.up {
-  transform: rotate(-135deg);
-}
 svg .a {
   fill: #ddd;
   fill-rule: evenodd;
@@ -275,18 +253,6 @@ svg .a {
     padding: 5px 10px;
     margin: 5px 10px;
   }
-}
-.fade-menu-enter-active,
-.fade-menu-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-menu-enter, .fade-menu-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  opacity: 0;
-}
-.arrow.hide-arrow {
-  transform: rotate(45deg);
-  bottom: 60px;
-  transition: all 0.5s;
 }
 
 #back-top a {
