@@ -1,55 +1,142 @@
 @import "tailwindcss";
 
 @theme {
-  /* Pinned to Tailwind v3's yellow-400. v4 regenerated its palette in OKLCH, so
-     the stock `yellow-400` is no longer this hex and the accent would drift. */
-  --color-brand: #facc15;
+  /* Palette. Sampled from assets already in this repo — the night-Vancouver
+     photographs behind the hero and the gold of the logo mark — rather than
+     picked fresh, so the page reads as this site rather than a template.
+     Contrast ratios are against --color-ink. */
+  --color-ink: #0a0f1c; /* page ground: the harbour sky, a navy-black not a neutral black */
+  --color-surface: #131a2b; /* raised panels; one step up from ink, so they need no border */
+  --color-haze: #8c97ad; /* secondary text and labels — 5.9:1 */
+  --color-paper: #f2f4f8; /* body and headings, faintly cool — 16.2:1 */
+  --color-brand: #facc15; /* unchanged from the previous site — 11.7:1 */
+  --color-ember: #f5a524; /* the sodium street lights; used on the proof rule only */
+
+  --font-display: var(--font-rubik), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-open-sans), ui-sans-serif, system-ui, sans-serif;
+
+  /* Type scale. Root is 112.5%, so 1rem is 18px at a default browser setting.
+     --text-figure is the only step allowed past 2.5rem: the proof numbers are
+     the one place on this page that spends boldness. */
+  --text-figure: clamp(3.25rem, 9vw, 5.5rem);
+  --text-figure--line-height: 0.9;
+  --text-figure--letter-spacing: -0.03em;
+  --text-h1: clamp(1.9rem, 4.4vw, 3.1rem);
+  --text-h1--line-height: 1.12;
+  --text-h1--letter-spacing: -0.02em;
+  --text-h2: clamp(1.45rem, 2.8vw, 2.1rem);
+  --text-h2--line-height: 1.2;
+  --text-h2--letter-spacing: -0.015em;
+  --text-h3: 1.125rem;
+  --text-h3--line-height: 1.35;
+  --text-label: 0.7rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.14em;
 }
 
-/* The previous site set an 18px root, which scales every rem-based utility by
-   1.125x (px-10 lands on 45px, not 40px). Dropping it shrinks the whole layout. */
-html,
-body {
-  font-size: 18px;
+@layer base {
+  html {
+    /* 112.5% of the user's own default rather than the previous site's hard
+       `font-size: 18px`. Identical size at default settings, but someone who has
+       raised their browser font size now actually gets a larger page. */
+    font-size: 112.5%;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-body);
+    /* The one piece of chrome carried over from the previous site. */
+    border-top: 3px solid var(--color-brand);
+  }
+
+  /* :where() keeps these at zero specificity so a utility class always wins —
+     the previous stylesheet set these unlayered, which outranked Tailwind. */
+  :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  :where(p) {
+    text-wrap: pretty;
+  }
+
+  :where(a) {
+    color: inherit;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background-color: var(--color-brand);
+    color: var(--color-ink);
+  }
 }
 
-p {
-  margin-bottom: 0.75rem;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-rubik);
-  margin-bottom: 0.5rem;
-  line-height: normal;
-}
-
-/* Full-screen crossfading background.
-   Timing mirrors the previous react-background-slider setup: 2 images, each held
-   10s with a 1s transition, so the cycle is 2 * (10 + 1) = 22s. The keyframe stops
-   are transition/cycle = 5%, (hold + transition)/cycle = 50%, and 50 * 1.1 = 55%.
-   BackgroundSlider.tsx sets the per-figure delay and must stay in sync with these. */
-.background-slider > figure {
-  position: fixed;
+/* Hero backdrop ------------------------------------------------------------
+   Two night-Vancouver photographs crossfading behind the hero only; everything
+   below the hero sits on flat ink. Timing is carried over from the previous
+   full-page slider: each image is held 10s with a 1s transition, so the cycle is
+   2 * (10 + 1) = 22s. The keyframe stops are transition/cycle = 5%,
+   (hold + transition)/cycle = 50%, and 50 * 1.1 = 55%. HeroBackdrop.tsx computes
+   the per-frame delay from the same three numbers and must stay in sync. */
+.hero-backdrop__frame {
+  position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
   opacity: 0;
-  /* Sits behind the page; relies on html/body having no background colour. */
-  z-index: -1000;
   backface-visibility: hidden;
-  animation: image-fade 22s linear infinite -0.5s;
+  animation: hero-fade 22s linear infinite;
 }
 
-@keyframes image-fade {
+/* Paints over the frames, so it must stay after them in the stacking order.
+
+   Mobile first: the hero text runs the full width, so the scrim is uniform and
+   heavy — the photograph is texture rather than a picture, because legibility on
+   a phone is worth more than the view. From `md` up the text occupies the left
+   column only, so the scrim becomes horizontal: heavy enough on the left to
+   guarantee contrast under the headline, open on the right so the photograph is
+   actually visible in the space beside the portrait. Both variants finish by
+   dissolving to solid ink at the lower edge. */
+.hero-backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgb(10 15 28 / 0.84) 0%,
+    rgb(10 15 28 / 0.88) 50%,
+    rgb(10 15 28 / 0.97) 85%,
+    rgb(10 15 28 / 1) 100%
+  );
+}
+
+@media (min-width: 48rem) {
+  .hero-backdrop::after {
+    background:
+      linear-gradient(
+        180deg,
+        rgb(10 15 28 / 0) 0%,
+        rgb(10 15 28 / 0) 52%,
+        rgb(10 15 28 / 0.72) 85%,
+        rgb(10 15 28 / 1) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgb(10 15 28 / 0.9) 0%,
+        rgb(10 15 28 / 0.87) 40%,
+        rgb(10 15 28 / 0.6) 72%,
+        rgb(10 15 28 / 0.48) 100%
+      );
+  }
+}
+
+@keyframes hero-fade {
   0% {
     opacity: 0;
     animation-timing-function: ease-in;
@@ -70,10 +157,15 @@ h6 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .background-slider > figure {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-backdrop__frame {
     animation: none;
   }
-  .background-slider > figure:first-child {
+
+  .hero-backdrop__frame:first-child {
     opacity: 1;
   }
 }
