@@ -1,1 +1,79 @@
 @import "tailwindcss";
+
+@theme {
+  /* Pinned to Tailwind v3's yellow-400. v4 regenerated its palette in OKLCH, so
+     the stock `yellow-400` is no longer this hex and the accent would drift. */
+  --color-brand: #facc15;
+}
+
+/* The previous site set an 18px root, which scales every rem-based utility by
+   1.125x (px-10 lands on 45px, not 40px). Dropping it shrinks the whole layout. */
+html,
+body {
+  font-size: 18px;
+}
+
+p {
+  margin-bottom: 0.75rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-rubik);
+  margin-bottom: 0.5rem;
+  line-height: normal;
+}
+
+/* Full-screen crossfading background.
+   Timing mirrors the previous react-background-slider setup: 2 images, each held
+   10s with a 1s transition, so the cycle is 2 * (10 + 1) = 22s. The keyframe stops
+   are transition/cycle = 5%, (hold + transition)/cycle = 50%, and 50 * 1.1 = 55%.
+   BackgroundSlider.tsx sets the per-figure delay and must stay in sync with these. */
+.background-slider > figure {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  /* Sits behind the page; relies on html/body having no background colour. */
+  z-index: -1000;
+  backface-visibility: hidden;
+  animation: image-fade 22s linear infinite -0.5s;
+}
+
+@keyframes image-fade {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  5% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  50% {
+    opacity: 1;
+  }
+  55% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .background-slider > figure {
+    animation: none;
+  }
+  .background-slider > figure:first-child {
+    opacity: 1;
+  }
+}
