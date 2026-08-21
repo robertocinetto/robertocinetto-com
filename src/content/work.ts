@@ -38,7 +38,7 @@ export const workItems: WorkItem[] = [
     slug: "custom-crm-around-sales-workflow",
     title: "Custom CRM built around an existing sales workflow",
     summary:
-      "Rather than fitting the client into off-the-shelf software, I spent time mapping how their sales process actually ran and built a CRM around it — so the tool matched the work instead of the other way round.",
+      "Rather than fitting the client into off-the-shelf software, I spent time mapping how their sales process actually ran and built a CRM around it, so the tool matched the work instead of the other way round.",
     stack: ["Ruby on Rails", "PostgreSQL"],
     outcome: "+65% sales.",
   },

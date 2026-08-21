@@ -5,7 +5,7 @@ import { join } from "node:path";
 import { JOB_TITLE, NAME, SITE_URL } from "@/content/site";
 
 export const alt =
-  "Roberto Cinetto — senior full-stack developer. WordPress block architecture, WooCommerce and Next.js builds. North Vancouver, BC.";
+  "Roberto Cinetto, senior full-stack developer. WordPress block architecture, WooCommerce and Next.js builds. North Vancouver, BC.";
 
 export const size = { width: 1200, height: 630 };
 

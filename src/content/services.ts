@@ -11,7 +11,7 @@ export const services: Service[] = [
   {
     title: "Custom WordPress & block architecture",
     description:
-      "Gutenberg and ACF block systems built properly — server-rendered first paint, no page-builder dependency, maintainable by whoever inherits them. WooCommerce at scale, including Memberships, Subscriptions and LMS platforms.",
+      "Gutenberg and ACF block systems built properly (server-rendered first paint, no page-builder dependency, maintainable by whoever inherits them). WooCommerce at scale, including Memberships, Subscriptions and LMS platforms.",
   },
   {
     title: "Headless & migrations",
@@ -21,7 +21,7 @@ export const services: Service[] = [
   {
     title: "AI integration",
     description:
-      "RAG assistants over your own documents, LLM data and content pipelines, and workflow automation added to existing web products — including local models where privacy matters.",
+      "RAG assistants over your own documents, LLM data and content pipelines, and workflow automation added to existing web products (including local models where privacy matters).",
   },
 ];
 

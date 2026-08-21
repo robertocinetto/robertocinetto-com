@@ -17,21 +17,21 @@ export const proofFigures: ProofFigure[] = [
     prefix: "+",
     value: "200",
     unit: "%",
-    label: "quote requests — Italian manufacturing client",
+    label: "quote requests (Italian manufacturing client)",
   },
   {
     prefix: "+",
     value: "80",
     unit: "%",
-    label: "quote requests — franchise network",
+    label: "quote requests (franchise network)",
   },
   {
     prefix: "+",
     value: "65",
     unit: "%",
-    label: "sales — custom CRM built around the client’s sales workflow",
+    label: "sales (custom CRM built around the client’s sales workflow)",
   },
-  { prefix: "+", value: "40", unit: "%", label: "sales — e-commerce UX rebuild" },
+  { prefix: "+", value: "40", unit: "%", label: "sales (e-commerce UX rebuild)" },
 ];
 
 export const proofCaption =
