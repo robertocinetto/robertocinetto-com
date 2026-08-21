@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Sans, JetBrains_Mono } from "next/font/google";
 
+import Analytics from "@/components/Analytics";
 import { NAME, SITE_URL } from "@/content/site";
 
 import "./globals.css";
@@ -54,7 +55,10 @@ const RootLayout = ({ children }: LayoutProps<"/">) => (
     lang="en"
     className={`${instrumentSans.variable} ${jetBrainsMono.variable}`}
   >
-    <body className="antialiased">{children}</body>
+    <body className="antialiased">
+      {children}
+      <Analytics />
+    </body>
   </html>
 );
 

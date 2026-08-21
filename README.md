@@ -1,8 +1,10 @@
 # robertocinetto.com
 
 A single, statically rendered marketing page. Next.js 16 (App Router) + React 19 +
-Tailwind v4 + TypeScript. No CMS, no database, no client-side data fetching, and
-no client components — every byte of application code runs at build time.
+Tailwind v4 + TypeScript. No CMS, no database, no client-side data fetching and no
+client components; every byte of application code runs at build time. The one
+script that runs in the browser is Google Analytics, and it loads after
+hydration.
 
 ```bash
 pnpm install
@@ -164,6 +166,7 @@ src/
     home/                 one component per section
     icons.tsx             inline GitHub/LinkedIn marks — currently unused
     ExternalLink.tsx      target=_blank + "(opens in a new tab)" for screen readers
+    Analytics.tsx         GA4 via next/script, the only browser-side script
   content/                all copy (see above)
   assets/                 Instrument Sans + JetBrains Mono subsets, OG image only
 ```
@@ -197,6 +200,18 @@ src/
 - **`src/components/icons.tsx` is currently unreferenced.** The design renders the
   contact and footer links as plain text, so the inline GitHub/LinkedIn marks are
   not used. The file is kept because putting them back is a one-line change.
+
+- **Analytics** is GA4 (`G-VC7X9406GZ`), in `src/components/Analytics.tsx` and
+  rendered from the root layout. It uses `next/script` at the default
+  `afterInteractive` strategy rather than `@next/third-parties`, which would add
+  a dependency to reproduce the same four lines. The measurement ID lives in that
+  component, not in `src/content/`, because `content/` is copy and this is
+  configuration.
+
+  There is **no consent banner**, which is a deliberate part of the design (see
+  the design system's layout rules). GA4 sets cookies, so if EU traffic ever
+  matters, this needs either GA4 Consent Mode with `denied` defaults or a
+  cookieless analytics provider. Worth revisiting before any European campaign.
 
 - `/blog` and `/blog/*` redirect permanently to `/` (`next.config.ts`). The blog
   left with Strapi; the redirects keep old inbound links from hard-404ing.
