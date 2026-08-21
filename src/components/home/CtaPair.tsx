@@ -1,3 +1,4 @@
+import { gaAttrs, type GaLocation } from "@/components/Analytics";
 import ExternalLink from "@/components/ExternalLink";
 import { CAL_URL, CTA_PRIMARY, EMAIL } from "@/content/site";
 
@@ -15,11 +16,18 @@ const primaryClassName = `${baseClassName} bg-signal px-[26px] py-4 text-cta fon
    22px padding leaves no slack at all, so the padding eases off below `sm`. */
 const secondaryClassName = `${baseClassName} border border-line px-4 py-[15px] font-mono text-small text-daylight hover:border-haze hover:text-daylight sm:px-[22px]`;
 
+interface CtaPairProps {
+  stacked?: boolean;
+  /* Required, because the whole reason to track these is telling the hero copy
+     from the closing band. Both renders are otherwise byte-identical. */
+  location: GaLocation;
+}
+
 /**
  * The page's only two actions, repeated verbatim in the hero and in contact.
  * `stacked` is for the contact band, where they sit in a narrow side column.
  */
-const CtaPair = ({ stacked = false }: { stacked?: boolean }) => (
+const CtaPair = ({ stacked = false, location }: CtaPairProps) => (
   <div
     className={
       stacked
@@ -27,10 +35,18 @@ const CtaPair = ({ stacked = false }: { stacked?: boolean }) => (
         : "flex flex-col gap-3 md:flex-row md:flex-wrap"
     }
   >
-    <ExternalLink href={CAL_URL} className={primaryClassName}>
+    <ExternalLink
+      href={CAL_URL}
+      className={primaryClassName}
+      {...gaAttrs("book_call_click", location)}
+    >
       {CTA_PRIMARY}
     </ExternalLink>
-    <a href={`mailto:${EMAIL}`} className={secondaryClassName}>
+    <a
+      href={`mailto:${EMAIL}`}
+      className={secondaryClassName}
+      {...gaAttrs("email_click", location)}
+    >
       {EMAIL}
     </a>
   </div>

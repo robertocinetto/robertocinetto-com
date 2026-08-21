@@ -1,3 +1,4 @@
+import { gaAttrs } from "@/components/Analytics";
 import ExternalLink from "@/components/ExternalLink";
 import { contact } from "@/content/contact";
 import { GITHUB_URL, LINKEDIN_URL } from "@/content/site";
@@ -30,13 +31,23 @@ const Contact = () => (
         </div>
 
         <div className="flex flex-col gap-6 pt-2">
-          <CtaPair />
+          <CtaPair location="contact" />
           <ul className="flex gap-6 text-small">
             <li>
-              <ExternalLink href={GITHUB_URL}>GitHub</ExternalLink>
+              <ExternalLink
+                href={GITHUB_URL}
+                {...gaAttrs("social_click", "contact")}
+              >
+                GitHub
+              </ExternalLink>
             </li>
             <li>
-              <ExternalLink href={LINKEDIN_URL}>LinkedIn</ExternalLink>
+              <ExternalLink
+                href={LINKEDIN_URL}
+                {...gaAttrs("social_click", "contact")}
+              >
+                LinkedIn
+              </ExternalLink>
             </li>
           </ul>
         </div>

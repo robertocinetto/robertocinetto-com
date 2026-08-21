@@ -1,3 +1,4 @@
+import { gaAttrs } from "@/components/Analytics";
 import ExternalLink from "@/components/ExternalLink";
 import { EMAIL, GITHUB_URL, LINKEDIN_URL, NAME } from "@/content/site";
 
@@ -13,13 +14,25 @@ const SiteFooter = () => (
       <div className="flex flex-wrap items-baseline gap-x-7 gap-y-3 border-t border-line pt-6 font-mono text-caption text-haze-dim">
         <span className="text-haze">{NAME}</span>
         <span>© {new Date().getFullYear()}</span>
-        <a href={`mailto:${EMAIL}`} className={linkClassName}>
+        <a
+          href={`mailto:${EMAIL}`}
+          className={linkClassName}
+          {...gaAttrs("email_click", "footer")}
+        >
           {EMAIL}
         </a>
-        <ExternalLink href={GITHUB_URL} className={linkClassName}>
+        <ExternalLink
+          href={GITHUB_URL}
+          className={linkClassName}
+          {...gaAttrs("social_click", "footer")}
+        >
           GitHub
         </ExternalLink>
-        <ExternalLink href={LINKEDIN_URL} className={linkClassName}>
+        <ExternalLink
+          href={LINKEDIN_URL}
+          className={linkClassName}
+          {...gaAttrs("social_click", "footer")}
+        >
           LinkedIn
         </ExternalLink>
       </div>

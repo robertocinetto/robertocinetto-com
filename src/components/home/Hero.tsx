@@ -30,7 +30,7 @@ const Hero = () => (
           <p className="max-w-[52ch] text-lead">{hero.subhead}</p>
 
           <div className="mt-1">
-            <CtaPair />
+            <CtaPair location="hero" />
           </div>
 
           <p className="mt-3 border-t border-line pt-4 font-mono text-caption text-haze-dim">
