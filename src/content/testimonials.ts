@@ -16,10 +16,12 @@ export interface Testimonial {
  * would undo the credibility the rest of this page is built to establish, so the
  * section is built and switched off instead.
  *
- * To turn it on: add two or three attributable quotes to `items` — role, agency
- * size and city, never a personal name — and flip `enabled` to true. Nothing
- * else needs changing; the band takes its place directly after the case studies
- * and the night/panel alternation still works out.
+ * To turn it on: add two or three attributable quotes to `items` (role, agency
+ * size and city, never a personal name) and flip `enabled` to true. One other
+ * thing has to change at the same time: with this band visible its panel sits
+ * directly against the agencies panel, and the night/panel alternation that
+ * separates every other section disappears. Give `<AgencyTerms />` a night
+ * surface when you do. Full steps in docs/content-and-voice.md.
  */
 export const testimonials = {
   enabled: false,
