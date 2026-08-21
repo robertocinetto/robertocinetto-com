@@ -1,25 +1,30 @@
 import ExternalLink from "@/components/ExternalLink";
 import { CAL_URL, CTA_PRIMARY, EMAIL } from "@/content/site";
 
-/* Full-width and a notch smaller below `sm`: "roberto@robertocinetto.com" is a
-   single unbreakable 26-character label, and at 18px it is wider than a 320px
-   viewport can hold once padding is added — which blew the hero grid column
-   past the edge of the screen. */
+/* Radius 0, and deliberately no transition: hovers in this system are colour
+   only and instant. Below `md` both actions stack full-width at 48px min height
+   so they stay thumb-sized. */
 const baseClassName =
-  "inline-flex w-full items-center justify-center rounded-md px-4 py-3.5 font-display text-[0.9rem] font-medium transition-colors sm:w-auto sm:px-6 sm:text-base";
+  "inline-flex min-h-12 w-full items-center justify-center no-underline md:w-auto";
 
-const primaryClassName = `${baseClassName} bg-brand text-ink hover:bg-ember`;
+/* Never two primaries side by side — this is the page's one action. */
+const primaryClassName = `${baseClassName} bg-signal px-[26px] py-4 text-cta font-semibold text-night hover:bg-signal-hi hover:text-night active:bg-signal-active`;
 
-const secondaryClassName = `${baseClassName} border border-paper/25 text-paper hover:border-brand hover:text-brand`;
+/* The secondary CTA is literally the email address in mono, not a word like
+   "Contact". At 320px that 26-character unbreakable string plus the design's
+   22px padding leaves no slack at all, so the padding eases off below `sm`. */
+const secondaryClassName = `${baseClassName} border border-line px-4 py-[15px] font-mono text-small text-daylight hover:border-haze hover:text-daylight sm:px-[22px]`;
 
 /**
  * The page's only two actions, repeated verbatim in the hero and in contact.
- * `stacked` is for the contact panel, where they sit in a narrow side column.
+ * `stacked` is for the contact band, where they sit in a narrow side column.
  */
 const CtaPair = ({ stacked = false }: { stacked?: boolean }) => (
   <div
     className={
-      stacked ? "flex flex-col gap-3" : "flex flex-col gap-3 sm:flex-row sm:flex-wrap"
+      stacked
+        ? "flex flex-col gap-3"
+        : "flex flex-col gap-3 md:flex-row md:flex-wrap"
     }
   >
     <ExternalLink href={CAL_URL} className={primaryClassName}>

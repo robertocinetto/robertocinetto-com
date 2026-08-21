@@ -1,23 +1,28 @@
 import type { Metadata } from "next";
-import { Open_Sans, Rubik } from "next/font/google";
+import { Instrument_Sans, JetBrains_Mono } from "next/font/google";
 
 import { NAME, SITE_URL } from "@/content/site";
 
 import "./globals.css";
 
 /* Two families, both variable: one file each covers every weight the page uses,
-   which is smaller than shipping static instances of 500 and 700 separately.
-   next/font self-hosts them, so there is no request to Google at runtime. */
-const openSans = Open_Sans({
+   which is smaller than shipping static instances separately. next/font
+   self-hosts them, so there is no request to Google at runtime.
+
+   Instrument Sans carries every word set in prose. JetBrains Mono carries the
+   labels, captions, result lines, the email address and — the point of the
+   whole direction — the proof figures, so a number reads as a measurement
+   rather than a marketing claim. */
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-open-sans",
+  variable: "--font-instrument-sans",
 });
 
-const rubik = Rubik({
+const jetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-rubik",
+  variable: "--font-jetbrains-mono",
 });
 
 const title =
@@ -45,7 +50,10 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = ({ children }: LayoutProps<"/">) => (
-  <html lang="en" className={`${rubik.variable} ${openSans.variable}`}>
+  <html
+    lang="en"
+    className={`${instrumentSans.variable} ${jetBrainsMono.variable}`}
+  >
     <body className="antialiased">{children}</body>
   </html>
 );

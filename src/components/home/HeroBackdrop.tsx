@@ -39,7 +39,8 @@ const HeroBackdrop = () => (
           fill
           sizes="100vw"
           className="object-cover object-center"
-          priority={index === 0}
+          loading={index === 0 ? "eager" : "lazy"}
+          fetchPriority={index === 0 ? "high" : "auto"}
         />
       </div>
     ))}

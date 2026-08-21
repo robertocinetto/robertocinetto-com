@@ -43,3 +43,8 @@ export const workItems: WorkItem[] = [
     outcome: "+65% sales.",
   },
 ];
+
+export const workSection = {
+  label: "Selected work",
+  heading: "Three builds, anonymised",
+} as const;

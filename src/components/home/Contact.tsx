@@ -1,50 +1,44 @@
 import ExternalLink from "@/components/ExternalLink";
-import { GithubIcon, LinkedinIcon } from "@/components/icons";
 import { contact } from "@/content/contact";
 import { GITHUB_URL, LINKEDIN_URL } from "@/content/site";
 
 import CtaPair from "./CtaPair";
 import SectionHeading from "./SectionHeading";
+import { SECTION_PADDING } from "./Section";
 import Shell from "./Shell";
 
-const socialClassName =
-  "inline-flex items-center gap-2 transition-colors hover:text-brand";
-
-/* Sits on a raised panel rather than open ink: it is the end of the page and the
-   only thing being asked for, so it should read as a block to act on rather than
-   trail off. No form — agency people email, and a form is one more thing that can
-   quietly stop delivering. */
+/* A full-bleed panel band rather than a card on open night: it is the end of the
+   page and the only thing being asked for, so it should read as a block to act
+   on rather than trail off. The one heading on the page that asks a question.
+   No form — agency people email, and a form is one more thing that can quietly
+   stop delivering. */
 const Contact = () => (
   <section
     id="contact"
     aria-labelledby="contact-heading"
-    className="pt-16 pb-20 md:pt-24 md:pb-28"
+    className={`bg-panel ${SECTION_PADDING}`}
   >
     <Shell>
-      <div className="rounded-lg bg-surface p-8 md:grid md:grid-cols-[minmax(0,1fr)_auto] md:items-end md:gap-x-14 md:p-12">
-        <div>
-          <SectionHeading id="contact-heading">{contact.heading}</SectionHeading>
-          <p className="max-w-[38rem] text-[0.95rem] leading-relaxed text-paper/80 md:text-base">
-            {contact.body}
-          </p>
-          <ul className="mt-8 flex flex-wrap gap-x-7 gap-y-3 text-sm text-haze">
-            <li>
-              <ExternalLink href={GITHUB_URL} className={socialClassName}>
-                <GithubIcon />
-                GitHub
-              </ExternalLink>
-            </li>
-            <li>
-              <ExternalLink href={LINKEDIN_URL} className={socialClassName}>
-                <LinkedinIcon />
-                LinkedIn
-              </ExternalLink>
-            </li>
-          </ul>
+      <div className="grid items-start gap-x-16 gap-y-10 min-[1100px]:grid-cols-2">
+        <div className="flex flex-col gap-5">
+          <SectionHeading
+            id="contact-heading"
+            heading={contact.heading}
+            size="large"
+          />
+          <p className="max-w-[56ch] text-prose">{contact.body}</p>
         </div>
 
-        <div className="mt-9 md:mt-0">
-          <CtaPair stacked />
+        <div className="flex flex-col gap-6 pt-2">
+          <CtaPair />
+          <ul className="flex gap-6 text-small">
+            <li>
+              <ExternalLink href={GITHUB_URL}>GitHub</ExternalLink>
+            </li>
+            <li>
+              <ExternalLink href={LINKEDIN_URL}>LinkedIn</ExternalLink>
+            </li>
+          </ul>
         </div>
       </div>
     </Shell>

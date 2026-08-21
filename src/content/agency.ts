@@ -22,3 +22,9 @@ export const agencyTerms: AgencyTerm[] = [
     detail: " You scope it; I ship it.",
   },
 ];
+
+export const agencySection = {
+  label: "White-label",
+  heading: "How I work with agencies",
+  lead: "Senior capacity you can put on a client project without changing how your team already runs.",
+} as const;

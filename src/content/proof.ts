@@ -36,3 +36,6 @@ export const proofFigures: ProofFigure[] = [
 
 export const proofCaption =
   "Measured results from shipped projects, not estimates.";
+
+/** Mono eyebrow above the figures. Sentence case here, uppercased by CSS. */
+export const proofLabel = "Outcomes";

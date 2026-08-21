@@ -7,7 +7,15 @@ import SelectedWork from "@/components/home/SelectedWork";
 import Services from "@/components/home/Services";
 import SiteFooter from "@/components/home/SiteFooter";
 import StructuredData from "@/components/home/StructuredData";
+import Testimonials from "@/components/home/Testimonials";
+import { testimonials } from "@/content/testimonials";
 
+/* Bands alternate night and panel all the way down, and that alternation is the
+   only divider the page has — night (hero), panel (proof), night (services and
+   work, which share one band), panel (agencies), night (background), panel
+   (contact), night (footer). The testimonial slot is off, which keeps that
+   sequence intact; turning it on puts a panel band directly before the agencies
+   panel, so give the agencies band `surface="night"` at the same time. */
 const Home = () => (
   <>
     <main>
@@ -15,17 +23,7 @@ const Home = () => (
       <ProofBar />
       <Services />
       <SelectedWork />
-
-      {/* ------------------------------------------------------------------
-          TESTIMONIALS SLOT — intentionally empty.
-
-          No testimonials have been collected yet, and inventing or paraphrasing
-          one would undo the credibility the rest of this page is built to
-          establish. When two or three real quotes exist, add
-          `src/content/testimonials.ts` and a <Testimonials /> section here —
-          this is the right position for it, directly after the case studies.
-          ------------------------------------------------------------------ */}
-
+      {testimonials.enabled ? <Testimonials /> : null}
       <AgencyTerms />
       <Background />
       <Contact />

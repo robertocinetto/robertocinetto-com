@@ -1,14 +1,41 @@
+import type { ReactNode } from "react";
+
+interface SectionHeadingProps {
+  id: string;
+  /** Mono eyebrow. Written sentence case in the content file, shouted by CSS. */
+  label?: string;
+  heading: ReactNode;
+  /** Optional short lead under the heading. Keep it under two lines. */
+  lead?: ReactNode;
+  /** `large` is the contact band's bigger h2. */
+  size?: "default" | "large";
+}
+
 /**
- * Each section is tagged by a short gold rule the width of a dash rather than
- * ruled off by a full-width hairline — these are a sequence of claims, not
- * columns of a newspaper.
+ * The fixed opener for every section: label -> 12 -> h2 -> 24 -> lead. Putting
+ * it in one place is the only way to stop that rhythm drifting section by
+ * section; the 48px down to the content itself is declared by <Section>.
  */
-const SectionHeading = ({ id, children }: { id: string; children: string }) => (
+const SectionHeading = ({
+  id,
+  label,
+  heading,
+  lead,
+  size = "default",
+}: SectionHeadingProps) => (
   <>
-    <span aria-hidden="true" className="block h-0.5 w-10 bg-brand" />
-    <h2 id={id} className="mt-6 mb-8 text-h2 font-medium md:mb-11">
-      {children}
+    {label ? (
+      <p className="font-mono text-label uppercase text-haze-dim">{label}</p>
+    ) : null}
+    <h2
+      id={id}
+      className={`${label ? "mt-3" : ""} ${
+        size === "large" ? "text-h2-contact" : "text-h2"
+      }`}
+    >
+      {heading}
     </h2>
+    {lead ? <p className="mt-6 max-w-[44ch] text-prose">{lead}</p> : null}
   </>
 );
 

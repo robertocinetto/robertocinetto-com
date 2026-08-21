@@ -1,47 +1,60 @@
-import { workItems } from "@/content/work";
+import { workItems, workSection } from "@/content/work";
 
 import Section from "./Section";
 
-/* Stacked full-width rows rather than a card grid: each item is a short case
-   with a beginning and an end, so reading order is vertical. On desktop the
-   outcome is pulled into its own column so an agency lead scanning for evidence
-   can read just that column straight down the page. */
+/* Shares the night band with the services above it — hence `flush`, which drops
+   this section's top padding so the two read as one block.
+
+   Stacked full-width rows rather than a card grid: each item is a short case
+   with a beginning and an end, so reading order is vertical. From 1120px the
+   stack and the outcome move into their own column, so an agency lead scanning
+   for evidence can read that column straight down the page. A card here is a
+   flat panel rectangle — no border, no radius, no shadow. */
 const SelectedWork = () => (
-  <Section id="work" heading="Selected work">
-    <div className="flex flex-col gap-5">
+  <Section
+    id="work"
+    label={workSection.label}
+    heading={workSection.heading}
+    flush
+  >
+    <div className="flex flex-col gap-8">
       {workItems.map((item) => (
         <article
           key={item.slug}
-          className="rounded-lg bg-surface p-7 md:grid md:grid-cols-[minmax(0,1fr)_15rem] md:gap-x-10 md:p-9"
+          className="grid items-start gap-8 bg-panel p-[clamp(24px,3vw,40px)] hover:bg-panel-hi min-[1120px]:grid-cols-[minmax(0,1fr)_340px] min-[1120px]:gap-x-12"
         >
-          <div>
-            <h3 className="max-w-[34ch] text-h3 font-medium md:text-xl">
-              {item.title}
-            </h3>
-            <p className="mt-4 text-[0.95rem] leading-relaxed text-paper/80">
-              {item.summary}
-            </p>
-
-            <ul aria-label="Stack" className="mt-6 flex flex-wrap gap-2">
-              {item.stack.map((tool) => (
-                <li
-                  key={tool}
-                  className="rounded border border-paper/15 px-2.5 py-1 font-display text-[0.78rem] text-haze"
-                >
-                  {tool}
-                </li>
-              ))}
-            </ul>
+          <div className="flex flex-col gap-4.5">
+            <h3 className="text-h3-work">{item.title}</h3>
+            <p className="max-w-[70ch] text-body">{item.summary}</p>
           </div>
 
-          <p className="mt-7 border-t border-paper/10 pt-5 md:mt-0 md:border-t-0 md:border-l md:border-brand/25 md:pt-1 md:pl-8">
-            <span className="block font-display text-label uppercase text-brand">
-              Result
-            </span>
-            <span className="mt-2 block text-[0.95rem] leading-relaxed">
-              {item.outcome}
-            </span>
-          </p>
+          <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-2.5">
+              <p
+                id={`${item.slug}-stack`}
+                className="font-mono text-label-sm uppercase text-haze-dim"
+              >
+                Stack
+              </p>
+              <ul
+                aria-labelledby={`${item.slug}-stack`}
+                className="flex flex-wrap gap-2"
+              >
+                {item.stack.map((tool) => (
+                  <li
+                    key={tool}
+                    className="border border-line px-[9px] py-[5px] font-mono text-label normal-case tracking-normal"
+                  >
+                    {tool}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <p className="border-t border-line pt-4 font-mono text-result text-daylight">
+              <span className="text-signal">Result:</span> {item.outcome}
+            </p>
+          </div>
         </article>
       ))}
     </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import { hero } from "@/content/hero";
+import { NAME } from "@/content/site";
 
 import CtaPair from "./CtaPair";
 import HeroBackdrop from "./HeroBackdrop";
@@ -8,40 +9,50 @@ import Shell from "./Shell";
 
 import portrait from "../../../public/roberto-cinetto-picture.jpeg";
 
+/* No navigation sits above this: the page is one uninterrupted scroll, so the
+   hero is the first thing under the signal rule and has to carry the whole
+   introduction on its own. */
 const Hero = () => (
-  <section
+  <header
     aria-labelledby="hero-heading"
-    className="relative isolate overflow-hidden"
+    className="relative isolate flex min-h-[clamp(560px,84vh,900px)] items-center overflow-hidden pt-[clamp(72px,9vw,128px)] pb-[clamp(80px,9vw,128px)]"
   >
     <HeroBackdrop />
     <Shell>
-      <div className="grid gap-x-14 gap-y-10 pt-14 pb-16 md:grid-cols-[minmax(0,1fr)_auto] md:pt-20 md:pb-20">
-        <div className="max-w-[40rem] md:col-start-1 md:row-start-1">
-          <h1 id="hero-heading" className="text-h1 font-bold">{hero.heading}</h1>
-          <p className="mt-6 max-w-[34rem] text-lg leading-relaxed text-paper/80">
-            {hero.subhead}
-          </p>
-          <div className="mt-9">
+      <div className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,420px),1fr))] items-center gap-12">
+        <div className="flex flex-col gap-7">
+          <p className="font-mono text-label uppercase text-haze-dim">{NAME}</p>
+
+          <h1 id="hero-heading" className="max-w-[26ch] text-h1">
+            {hero.heading}
+          </h1>
+
+          <p className="max-w-[52ch] text-lead">{hero.subhead}</p>
+
+          <div className="mt-1">
             <CtaPair />
           </div>
+
+          <p className="mt-3 border-t border-line pt-4 font-mono text-caption text-haze-dim">
+            {hero.location} · <span className="text-haze">{hero.availability}</span>
+          </p>
         </div>
 
-        <div className="md:col-start-2 md:row-start-1">
+        <div className="flex justify-end">
           <Image
             src={portrait}
             alt={hero.portraitAlt}
-            sizes="(min-width: 768px) 180px, 126px"
-            className="size-[7rem] rounded-full object-cover ring-2 ring-brand md:size-[10rem]"
-            priority
+            sizes="260px"
+            /* The only rounded corner in the entire system, and the only
+               photograph the design allows outside the backdrop. */
+            className="size-[260px] rounded-full border-2 border-signal object-cover"
+            loading="eager"
+            fetchPriority="high"
           />
         </div>
-
-        <p className="max-w-[38rem] text-sm leading-relaxed text-haze md:col-start-1 md:row-start-2">
-          {hero.availability}
-        </p>
       </div>
     </Shell>
-  </section>
+  </header>
 );
 
 export default Hero;

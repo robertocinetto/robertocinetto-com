@@ -24,3 +24,8 @@ export const services: Service[] = [
       "RAG assistants over your own documents, LLM data and content pipelines, and workflow automation added to existing web products — including local models where privacy matters.",
   },
 ];
+
+export const servicesSection = {
+  label: "What I do",
+  heading: "Three kinds of work",
+} as const;
