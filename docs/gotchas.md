@@ -88,6 +88,10 @@ string could close the `<script>` tag early. Do not simplify it away while tidyi
 `ExternalLink` spreads `{...rest}` **before** `href`, `target` and `rel` so those stay authoritative —
 a caller cannot accidentally drop `target="_blank"` while passing analytics attributes.
 
+One more trap sits in the GA4 dashboard rather than in this repo: the **Create an event** dialog
+defaults to building a derived event off `page_view`, which would fabricate a conversion on every
+visit. See [operations.md](./operations.md#the-default-that-would-silently-wreck-the-data).
+
 ## `priority` is deprecated on `next/image` in Next 16
 
 Use `loading="eager"` with `fetchPriority="high"` instead, which is what the hero portrait and the

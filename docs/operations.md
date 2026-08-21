@@ -95,26 +95,90 @@ event. `CtaPair` takes `location` as a **required** prop for the same reason: it
 otherwise byte-identical, and telling the hero CTA from the closing one is the entire point of
 tracking them.
 
-### Two things to do in the GA4 admin
+### GA4 admin configuration
 
-Neither is retroactive.
+Both items below were configured on 21 August 2026, **before** the tracking code went live. Neither is
+retroactive, and that ordering is the whole reason nothing was lost.
 
-1. **Register `link_location` as a custom dimension** — Admin → Data display → Custom definitions →
-   Custom dimensions, scope **Event**. Until you do, the parameter is collected but appears in no
-   report or exploration, only in Realtime and DebugView. Data appears roughly 24h after registering.
-2. **Mark `book_call_click` and `email_click` as key events** — Admin → Data display → Key events. GA4
-   accepts a name before the first event arrives. `social_click` is interest rather than intent, so
-   leave it unmarked.
+1. **`link_location` is registered as a custom dimension** — Admin → Data display → Custom
+   definitions; name "Link location", scope **Event**, parameter `link_location`. An unregistered
+   parameter is still collected, but appears in no report and no exploration — only in Realtime and
+   DebugView. That parameter field is exact and case-sensitive, and getting the string wrong is the
+   quietest possible way for all of this to produce nothing.
+2. **`book_call_click` and `email_click` are marked as key events** — Admin → Data display → Key
+   events. GA4 accepts an event name before the first event ever arrives, so this did not wait on
+   traffic.
+
+`social_click` is deliberately **not** a key event: it is interest rather than intent, and folding it
+in would make the conversion number mean "clicked something" rather than "moved toward booking".
+
+`purchase`, `qualify_lead` and `close_convert_lead` also appear in that list. GA4 pre-registered them
+when the property was created; nothing here sends them, so they sit at zero permanently.
+
+#### The default that would silently wreck the data
+
+GA4's **Create an event** dialog opens on *Create without code*, which builds a **derived** event from
+an existing one — with the trigger pre-filled as `page_view`. Accepting that for `book_call_click`
+would synthesise a booking on every page load, and since the fabricated event carries the same name as
+the real one, the two can never be separated afterwards. On a one-page site that is every single visit
+counted as a lead.
+
+For an event the site already sends from its own code, scroll down that dialog and choose **Create
+with code**. The `page_view` trigger disappears along with it.
+
+#### Two dialog settings worth overriding
+
+- **Counting method: "Once per session", not the badged "Once per event".** The Cal.com link is
+  `target="_blank"`, so the visitor stays on the page after clicking and re-clicking is ordinary
+  behaviour; and both CTAs render twice, so one person can fire the same event from the hero and again
+  from the closing band. Per-event counting turns one lead into two or three. Google's default suits
+  purchases, where every event really is a separate transaction. This is not that.
+- **No default key event value.** The dialog offers a monetary amount per key event. A placeholder
+  figure surfaces as a value next to real money in channel and campaign comparisons, so it reads as
+  revenue that does not exist. Set one only when it means something — expected project value × close
+  rate from a booking click — never `1`.
 
 Enhanced measurement stays on. Its outbound `click` events overlap these but sit under a different
 event name, so nothing double-counts — and `mailto:` is not an outbound click at all, which is half
 the reason this exists.
 
+### Automating the GA4 side
+
+The official [Google Analytics MCP server](https://github.com/googleanalytics/google-analytics-mcp) is
+**read-only** — `run_report`, `get_property_details`, `get_custom_dimensions_and_metrics` and similar.
+It can verify a configuration but never create one, and there is no official GA CLI.
+
+The Admin API v1beta *can* write both items above, under OAuth scope
+`https://www.googleapis.com/auth/analytics.edit`:
+
+```
+POST https://analyticsadmin.googleapis.com/v1beta/properties/{id}/customDimensions
+POST https://analyticsadmin.googleapis.com/v1beta/properties/{id}/keyEvents
+```
+
+The cost is the auth handshake — `gcloud auth application-default login` with that scope, or a service
+account added as an Editor on the property. For a two-item one-off the dashboard is faster. DebugView
+has no API at all.
+
 ### Verifying without sending a hit
 
-`pnpm build && pnpm start` (no `VERCEL_ENV`, so no GA script loads), then in the console stub
-`window.gtag = console.log`, paste the listener from `Analytics.tsx`, and click around.
-`[...document.querySelectorAll('[data-ga-event]')]` should return exactly nine anchors.
+`pnpm build && pnpm start` (no `VERCEL_ENV`, so no GA script loads), then in the console stub `gtag`,
+paste the listener from `Analytics.tsx`, and dispatch the clicks rather than making them by hand — it
+covers all nine without opening Cal.com, a mail client and four tabs, and `preventDefault` does not
+stop the listener firing:
+
+```js
+window.gtag = (...a) => console.log(...a);
+document.addEventListener('click', e => e.preventDefault(), true);
+for (const a of document.querySelectorAll('[data-ga-event]')) {
+  let n = a; while (n.lastElementChild) n = n.lastElementChild;  // usually the sr-only span
+  n.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+}
+```
+
+Expect exactly nine lines. Walking to the deepest child is the point: six of the nine anchors wrap an
+`sr-only` span, so that is what a real click usually lands on, and it is what `closest()` in the
+listener exists to handle.
 
 When checking the live site instead, note that privacy extensions commonly intercept
 `google-analytics_analytics.js` and substitute a stub: `gtag` will be defined and `dataLayer`
