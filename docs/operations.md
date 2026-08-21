@@ -180,9 +180,28 @@ Expect exactly nine lines. Walking to the deepest child is the point: six of the
 `sr-only` span, so that is what a real click usually lands on, and it is what `closest()` in the
 listener exists to handle.
 
-When checking the live site instead, note that privacy extensions commonly intercept
-`google-analytics_analytics.js` and substitute a stub: `gtag` will be defined and `dataLayer`
-populated while no hit ever leaves. Confirm in **GA4 → Reports → Realtime**, or from a clean profile.
+When checking the live site instead, expect blockers to get in the way — and note that they fail
+*silently and convincingly*. The inline script always runs, so `gtag` is defined, `dataLayer` fills up
+and every event looks correct in the console, while nothing ever leaves the browser. This was observed
+on the first live smoke test: all nine events reached `dataLayer` and none reached GA4.
+
+`gtag` being a function proves nothing — that is our own four-line stub. The reliable test is whether
+Google's script actually executed:
+
+```js
+typeof window.google_tag_manager === 'object'   // false => gtag.js never ran
+performance.getEntriesByType('resource')
+  .filter(r => /googletagmanager/.test(r.name)).length   // 0 => request never left
+```
+
+A count of zero with the `<script>` tag present in the DOM means blocked outright rather than failed.
+Extension-level blocking is fixed by allowlisting the domain or using a clean profile; DNS-level
+blocking (Pi-hole, NextDNS) is not, so a phone on cellular is the unambiguous test. Always confirm in
+**GA4 → Reports → Realtime**, never in the console.
+
+Worth carrying into how the numbers are read: this audience is agencies and developers, who block at
+well above the general rate. GA4 will undercount real interest, so treat the click events as a floor
+and a trend line, not a headcount.
 
 ### No consent banner
 
