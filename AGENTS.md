@@ -35,7 +35,7 @@ These are invariants, not preferences. Each links to the file that explains it.
   specificity trap that silently drops every heading to weight 400.
 - **Em dashes are used sparingly in page copy.** Prefer commas, then parentheses.
   [content-and-voice.md](docs/content-and-voice.md#punctuation)
-- **Every number on the page is a measured result from a shipped project**, and work is anonymised —
+- **Every number on the page is a measured result from a shipped project**, and work is anonymized —
   no client names, logos or screenshots. [content-and-voice.md](docs/content-and-voice.md)
 - **This repo is public.** Never commit identifiers, `.vercel/`, or any `.env` file.
 - **Pushing to `main` deploys to production.** There is no staging environment.

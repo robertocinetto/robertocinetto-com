@@ -123,7 +123,7 @@ defaults (`.next/**`, `out/**`, `build/**`, `next-env.d.ts`). Declaring `globalI
 them, so deleting the list would un-ignore `.next`.
 
 **`pnpm-workspace.yaml`** — `ignoredBuiltDependencies: [sharp, unrs-resolver]` suppresses their
-postinstall builds. This is fine on Vercel, which does its own image optimisation, and `next/og` uses
+postinstall builds. This is fine on Vercel, which does its own image optimization, and `next/og` uses
 WASM rather than sharp. It would matter if the site were ever self-hosted behind `next start`.
 
 **`postcss.config.mjs`** — only `@tailwindcss/postcss`. No `autoprefixer`, no `tailwindcss` plugin

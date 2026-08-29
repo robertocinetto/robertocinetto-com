@@ -73,16 +73,21 @@ sending a single hit.
 
 ### Click tracking
 
-Nine links, three events, one delegated listener.
+Seven links, three events, one delegated listener.
 
 | Event | `link_location` | Fires on |
 | --- | --- | --- |
 | `book_call_click` | `hero`, `contact` | the Cal.com button |
 | `email_click` | `hero`, `contact`, `footer` | the `mailto:` links |
-| `social_click` | `contact`, `footer` | GitHub and LinkedIn |
+| `social_click` | `contact`, `footer` | the LinkedIn link |
 
-Every event also carries `link_url`, read off the anchor's own `href`. That is what tells GitHub from
-LinkedIn, so there is no second attribute for it.
+Every event also carries `link_url`, read off the anchor's own `href`. That is how two social links in
+the same location are told apart, so there is no second attribute for it.
+
+LinkedIn is currently the only social link on the page. The GitHub links were pulled from the contact
+band and the footer before the agency outreach: the profile holds two old demo apps, which reads
+against fifteen years of senior work. `GITHUB_URL` stays in `site.ts` and in the JSON-LD `sameAs`,
+so restoring the links is JSX-only, once there is something on the profile worth clicking.
 
 Tag a link by spreading `gaAttrs(event, location)` from `Analytics.tsx` onto an anchor:
 
@@ -119,7 +124,7 @@ when the property was created; nothing here sends them, so they sit at zero perm
 
 GA4's **Create an event** dialog opens on *Create without code*, which builds a **derived** event from
 an existing one — with the trigger pre-filled as `page_view`. Accepting that for `book_call_click`
-would synthesise a booking on every page load, and since the fabricated event carries the same name as
+would synthesize a booking on every page load, and since the fabricated event carries the same name as
 the real one, the two can never be separated afterwards. On a one-page site that is every single visit
 counted as a lead.
 
@@ -164,7 +169,7 @@ has no API at all.
 
 `pnpm build && pnpm start` (no `VERCEL_ENV`, so no GA script loads), then in the console stub `gtag`,
 paste the listener from `Analytics.tsx`, and dispatch the clicks rather than making them by hand — it
-covers all nine without opening Cal.com, a mail client and four tabs, and `preventDefault` does not
+covers all seven without opening Cal.com, a mail client and two tabs, and `preventDefault` does not
 stop the listener firing:
 
 ```js
@@ -176,14 +181,14 @@ for (const a of document.querySelectorAll('[data-ga-event]')) {
 }
 ```
 
-Expect exactly nine lines. Walking to the deepest child is the point: six of the nine anchors wrap an
+Expect exactly seven lines. Walking to the deepest child is the point: four of the seven anchors wrap an
 `sr-only` span, so that is what a real click usually lands on, and it is what `closest()` in the
 listener exists to handle.
 
 When checking the live site instead, expect blockers to get in the way — and note that they fail
 *silently and convincingly*. The inline script always runs, so `gtag` is defined, `dataLayer` fills up
 and every event looks correct in the console, while nothing ever leaves the browser. This was observed
-on the first live smoke test: all nine events reached `dataLayer` and none reached GA4.
+on the first live smoke test: all events reached `dataLayer` and none reached GA4.
 
 `gtag` being a function proves nothing — that is our own four-line stub. The reliable test is whether
 Google's script actually executed:

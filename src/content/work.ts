@@ -46,5 +46,5 @@ export const workItems: WorkItem[] = [
 
 export const workSection = {
   label: "Selected work",
-  heading: "Three builds, anonymised",
+  heading: "Three builds",
 } as const;

@@ -6,7 +6,7 @@ Traps that fail silently, and values that are duplicated on purpose. Skim this b
 ## `:where()` in the base layer will silently break headings
 
 **`src/app/globals.css`.** The heading and anchor rules use plain element selectors — `h1, h2, h3…`
-and `a` — not `:where(h1, h2, h3…)`. This looks like an inconsistency worth "modernising". It is not.
+and `a` — not `:where(h1, h2, h3…)`. This looks like an inconsistency worth "modernizing". It is not.
 
 Tailwind's preflight resets headings to `font-weight: inherit` and anchors to
 `text-decoration: inherit`, both at **one point of specificity**. A `:where()` rule has zero

@@ -1,6 +1,6 @@
 import { gaAttrs } from "@/components/Analytics";
 import ExternalLink from "@/components/ExternalLink";
-import { EMAIL, GITHUB_URL, LINKEDIN_URL, NAME } from "@/content/site";
+import { EMAIL, LINKEDIN_URL, NAME } from "@/content/site";
 
 import Shell from "./Shell";
 
@@ -21,13 +21,6 @@ const SiteFooter = () => (
         >
           {EMAIL}
         </a>
-        <ExternalLink
-          href={GITHUB_URL}
-          className={linkClassName}
-          {...gaAttrs("social_click", "footer")}
-        >
-          GitHub
-        </ExternalLink>
         <ExternalLink
           href={LINKEDIN_URL}
           className={linkClassName}

@@ -9,7 +9,7 @@ All content is typed TypeScript under `src/content/`. There is no CMS: edit a fi
 
 | File | Holds |
 | --- | --- |
-| `site.ts` | Name, job title, email, Cal.com URL, GitHub/LinkedIn, location. Anything used in more than one place. |
+| `site.ts` | Name, job title, email, Cal.com URL, LinkedIn, location. Anything used in more than one place. `GITHUB_URL` is still here but no longer links from the page — only the JSON-LD `sameAs` reads it. |
 | `hero.ts` | The `h1`, subhead, the two halves of the availability line, portrait alt text. |
 | `proof.ts` | The four outcome figures, their eyebrow and the caption under them. |
 | `services.ts` | The three "What I do" entries, plus that section's eyebrow and heading. |
@@ -45,8 +45,10 @@ unhurried: state the fact and let the reader draw the conclusion.
   Never "Get started", "Let's talk", "Hire me".
 - **No emoji. No exclamation marks. No urgency**, no "2 spots left", no social-proof counters, no
   badges, no "trusted by" logo wall. Availability is stated flatly.
-- British-leaning spelling appears in the source ("anonymised"). Follow the existing copy rather than
-  "correcting" it. Contractions are used freely.
+- **Canadian spelling: American `-ize` verbs, British `-our`/`-re`/`-ogue` nouns.** Both halves show up
+  in one sentence of `work.ts` — "the aggregation and normalization pipeline" alongside "the combined
+  catalogues of several suppliers" — and that pairing is correct, not a slip to reconcile. Contractions
+  are used freely.
 
 ## Punctuation
 
@@ -58,10 +60,10 @@ Keep a dash only where neither works — typically a comma-separated list follow
 reader. The contact band is the one place on the page that still earns one:
 
 > "If you've got a build that's too technical for your team, a deadline that slipped, or a product
-> that needs AI features adding — tell me what you're working on."
+> that needs AI features added — tell me what you're working on."
 
 This overrides the design system's own stated rule ("em dashes with spaces for asides"), and it
-overrides its canonical proof-caption format. The captions are parenthesised here:
+overrides its canonical proof-caption format. The captions are parenthesized here:
 `quote requests (Italian manufacturing client)`.
 
 Middle dots separate mono metadata rows: `North Vancouver, BC · Pacific time`.
@@ -78,7 +80,7 @@ projects, not estimates." — and that line is not optional.
 
 Numbers appear as `+200%` with a lower-case caption naming the metric and the client *type*.
 
-**Work is anonymised on purpose: no client names, no logos, no screenshots.** Titles are concrete and
+**Work is anonymized on purpose: no client names, no logos, no screenshots.** Titles are concrete and
 number-led ("130,000 products, multiple supplier APIs, one store"), never "Case study 01", never a
 client name, never a vertical.
 
