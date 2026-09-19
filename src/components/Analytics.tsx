@@ -10,8 +10,9 @@ import Script from "next/script";
  *
  * `afterInteractive` is next/script's default and the right strategy here. It
  * matches the `async` in Google's own snippet, so gtag.js is fetched early but
- * never blocks first paint or hydration. There is one route and no client-side
- * navigation, so nothing needs to re-fire a pageview on route change.
+ * never blocks first paint or hydration. There is no client-side navigation
+ * (the footer's link to /privacy is a plain anchor, so every route change is a
+ * full page load), so nothing needs to re-fire a pageview on route change.
  */
 const GA_MEASUREMENT_ID = "G-VC7X9406GZ";
 

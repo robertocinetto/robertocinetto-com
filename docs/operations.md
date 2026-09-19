@@ -63,7 +63,8 @@ layout. The ID is already public in the served HTML, so naming it here costs not
 It uses `next/script` at the default `afterInteractive` strategy rather than `@next/third-parties`.
 That package's `GoogleAnalytics` component is the documented route, but it would add a dependency to
 reproduce the same four lines, and its main advantage — re-firing a pageview on client-side navigation
-— is moot on a site with one route and no client-side routing.
+— is moot on a site with no client-side routing. The footer's link to `/privacy` is a plain anchor, so
+every route change is a full page load that fires its own pageview.
 
 **The script only renders when `VERCEL_ENV === "production"`,** so preview deploys and `pnpm dev`
 report nothing and the live property stays clean. `NODE_ENV` would be the wrong test: it is
@@ -88,6 +89,10 @@ LinkedIn is currently the only social link on the page. The GitHub links were pu
 band and the footer before the agency outreach: the profile holds two old demo apps, which reads
 against fifteen years of senior work. `GITHUB_URL` stays in `site.ts` and in the JSON-LD `sameAs`,
 so restoring the links is JSX-only, once there is something on the profile worth clicking.
+
+The footer's `Privacy` link is deliberately untracked: it is neither a lead nor a social click. On
+`/privacy` the footer's email and LinkedIn links still fire with `link_location: footer`, and GA4's
+own page dimension tells them apart from the home page's.
 
 Tag a link by spreading `gaAttrs(event, location)` from `Analytics.tsx` onto an anchor:
 
@@ -212,7 +217,8 @@ and a trend line, not a headcount.
 
 Deliberate, and part of the design. GA4 sets cookies, so if EU traffic ever matters this needs either
 GA4 Consent Mode with `denied` defaults, or a cookieless provider. Worth revisiting before any
-European campaign.
+European campaign. `/privacy` says there is no banner in so many words, so adding one means updating
+`src/content/privacy.ts` in the same commit.
 
 ## The OG image
 
@@ -238,9 +244,10 @@ Satori resolves no CSS custom properties, so that file also repeats the palette 
 
 ```bash
 U=https://robertocinetto.com
-for p in / /opengraph-image /sitemap.xml /robots.txt /blog; do
+for p in / /privacy /opengraph-image /sitemap.xml /robots.txt /blog; do
   printf "%-18s %s\n" "$p" "$(curl -sI -o /dev/null -w '%{http_code} %{redirect_url}' "$U$p")"
 done
 ```
 
-Expect `200` on the first four and a `308` to `/` on `/blog`.
+Expect `200` on the first five and a `308` to `/` on `/blog`. `/privacy` should also carry
+`<meta name="robots" content="noindex"/>` and be absent from `sitemap.xml`.

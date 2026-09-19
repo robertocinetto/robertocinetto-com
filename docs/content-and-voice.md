@@ -9,7 +9,7 @@ All content is typed TypeScript under `src/content/`. There is no CMS: edit a fi
 
 | File | Holds |
 | --- | --- |
-| `site.ts` | Name, job title, email, Cal.com URL, LinkedIn, location. Anything used in more than one place. `GITHUB_URL` is still here but no longer links from the page — only the JSON-LD `sameAs` reads it. |
+| `site.ts` | Name, job title, email, Cal.com URL, LinkedIn, location, the privacy route and its footer label. Anything used in more than one place. `GITHUB_URL` is still here but no longer links from the page — only the JSON-LD `sameAs` reads it. |
 | `hero.ts` | The `h1`, subhead, the two halves of the availability line, portrait alt text. |
 | `proof.ts` | The four outcome figures, their eyebrow and the caption under them. |
 | `services.ts` | The three "What I do" entries, plus that section's eyebrow and heading. |
@@ -18,6 +18,7 @@ All content is typed TypeScript under `src/content/`. There is no CMS: edit a fi
 | `background.ts` | The Background paragraphs, plus eyebrow and heading. |
 | `contact.ts` | The closing heading and body. |
 | `testimonials.ts` | The testimonial band. Off by default — see below. |
+| `privacy.ts` | The `/privacy` page: intro, effective date, and each section's topics, with links as data. No em dashes. The Limited Use sentence is Google's required wording; do not edit it for voice. |
 
 **Every section component reads from exactly one of these and holds no copy of its own.** A
 hard-coded heading in a component looks harmless and quietly ends this arrangement.

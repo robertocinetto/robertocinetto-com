@@ -1,6 +1,12 @@
 import { gaAttrs } from "@/components/Analytics";
 import ExternalLink from "@/components/ExternalLink";
-import { EMAIL, LINKEDIN_URL, NAME } from "@/content/site";
+import {
+  EMAIL,
+  LINKEDIN_URL,
+  NAME,
+  PRIVACY_LABEL,
+  PRIVACY_PATH,
+} from "@/content/site";
 
 import Shell from "./Shell";
 
@@ -28,6 +34,14 @@ const SiteFooter = () => (
         >
           LinkedIn
         </ExternalLink>
+        {/* A plain anchor, not next/link: the site has no client-side routing
+            and this link doesn't justify adding it. Untracked on purpose, since
+            it is neither a lead nor a social click. It also puts the policy one
+            click from the home page, which Google's OAuth homepage requirements
+            ask for now that this site is Robi Second Brain's listed homepage. */}
+        <a href={PRIVACY_PATH} className={linkClassName}>
+          {PRIVACY_LABEL}
+        </a>
       </div>
     </Shell>
   </footer>

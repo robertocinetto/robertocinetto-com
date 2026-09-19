@@ -1,7 +1,8 @@
 # robertocinetto.com
 
 The personal site of Roberto Cinetto, a senior full-stack developer in North Vancouver, BC. One
-statically rendered marketing page, live at **[robertocinetto.com](https://robertocinetto.com)**.
+statically rendered marketing page (plus a privacy policy), live at
+**[robertocinetto.com](https://robertocinetto.com)**.
 
 Next.js 16 (App Router) + React 19 + Tailwind v4 + TypeScript. No CMS, no database, no client-side
 data fetching and no client components; every byte of application code runs at build time. The one
@@ -23,6 +24,7 @@ src/
   app/
     layout.tsx            fonts, metadata, <html>
     page.tsx              composes the seven sections (+ the testimonial band)
+    privacy/page.tsx      privacy policy for the site and Robi Second Brain (noindex)
     globals.css           @theme tokens, base layer, hero backdrop, proof-rise
     opengraph-image.tsx   generated 1200x630 card, built at build time
     robots.ts  sitemap.ts

@@ -92,6 +92,15 @@ One more trap sits in the GA4 dashboard rather than in this repo: the **Create a
 defaults to building a derived event off `page_view`, which would fabricate a conversion on every
 visit. See [operations.md](./operations.md#the-default-that-would-silently-wreck-the-data).
 
+## The privacy policy describes the code
+
+**`src/content/privacy.ts`.** The `/privacy` page states what GA4 records, that the site sets no
+cookies of its own and has no consent banner, that fonts and images are self-hosted, and that there
+are no forms. Change `Analytics.tsx`, add a tracked event, a third-party script, a form or a consent
+tool, and the page is false until that file changes too. Nothing will flag it. The same page is the
+privacy policy registered with Google for Robi Second Brain, so its route (`PRIVACY_PATH` in
+`src/content/site.ts`) cannot move without updating the Google Cloud consent screen.
+
 ## `priority` is deprecated on `next/image` in Next 16
 
 Use `loading="eager"` with `fetchPriority="high"` instead, which is what the hero portrait and the

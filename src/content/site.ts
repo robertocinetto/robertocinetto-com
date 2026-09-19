@@ -22,6 +22,15 @@ export const LINKEDIN_URL = "https://www.linkedin.com/in/robertocinetto/";
 
 export const CTA_PRIMARY = "Book a 30-minute call";
 
+/**
+ * The privacy policy. The route itself is the folder `src/app/privacy/`; this
+ * is what links to it. Its full URL is registered as the privacy policy link
+ * on the Google Cloud OAuth consent screen for Robi Second Brain, so the route
+ * can't move without updating it there too.
+ */
+export const PRIVACY_PATH = "/privacy";
+export const PRIVACY_LABEL = "Privacy";
+
 export const LOCALITY = "North Vancouver";
 export const REGION = "BC";
 export const COUNTRY = "CA";

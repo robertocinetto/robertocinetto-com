@@ -4,18 +4,42 @@ How the site is put together, and the contracts that keep it that way.
 
 ## Shape
 
-One statically rendered marketing page. Next.js 16 (App Router), React 19, Tailwind v4, TypeScript.
-No CMS, no database, no client-side data fetching. Every route prerenders at build time:
+One statically rendered marketing page, plus a privacy policy. Next.js 16 (App Router), React 19,
+Tailwind v4, TypeScript. No CMS, no database, no client-side data fetching. Every route prerenders at
+build time:
 
 | Route | Source |
 | --- | --- |
 | `/` | `src/app/page.tsx` |
+| `/privacy` | `src/app/privacy/page.tsx` (noindex, not in the sitemap; see [below](#the-privacy-page)) |
 | `/opengraph-image` | `src/app/opengraph-image.tsx` (1200×630 PNG, generated at build) |
 | `/icon.svg` | `src/app/icon.svg` (App Router file convention, becomes the favicon) |
 | `/sitemap.xml`, `/robots.txt` | `src/app/sitemap.ts`, `src/app/robots.ts` |
 
 There is **no navigation and no header**. The page is one uninterrupted scroll. Section anchor ids
-(`#services`, `#work`, `#agencies`, `#background`, `#contact`) exist but nothing links to them.
+(`#services`, `#work`, `#agencies`, `#background`, `#contact`) exist but nothing links to them. The
+one link between routes is the footer's plain-anchor link to `/privacy`.
+
+## The privacy page
+
+`/privacy` exists because Robi Second Brain, a private tool on Google APIs, needs a homepage and a
+privacy policy URL on its Google Cloud OAuth consent screen before Google lets it into production.
+That URL is registered there, which is why `PRIVACY_PATH` in `src/content/site.ts` must not move on
+its own. The page covers the website too.
+
+- **Copy** is `src/content/privacy.ts`, links included: a paragraph is a string, or a list of text
+  runs and `{ text, href }` links, so the page holds no words. The Limited Use sentence is Google's
+  required wording and is not edited for voice.
+- **Layout** reuses the home page's pieces: a hero-style opener (name eyebrow, `h1`, lead, mono
+  hairline with the effective date) inside `Shell`, then one `Section` per policy section,
+  alternating panel and night so it ends on panel above the night `SiteFooter`, like the home page.
+- **Metadata** sets `robots: { index: false }` and restates the canonical as `/privacy`. The
+  canonical has to be restated: metadata merges shallowly, so the page would otherwise inherit the
+  root layout's `/` and claim to be a copy of the home page. It stays out of the sitemap, and
+  `robots.ts` still allows it, because a crawler has to fetch the page to read the noindex.
+- **Links** are plain anchors, never `next/link`, which keeps the site free of client-side routing.
+- **It describes the code.** What it says about analytics, cookies, consent and hosting is only true
+  while `Analytics.tsx` and the rest stay as they are. See [gotchas.md](./gotchas.md).
 
 ## Server components only
 
@@ -94,6 +118,7 @@ alternation. See [content-and-voice.md](./content-and-voice.md#testimonials).
 | Social card | `src/app/opengraph-image.tsx` |
 | JSON-LD (`Person` + `ProfessionalService`) | `src/components/home/StructuredData.tsx` |
 | Sitemap, robots | `src/app/sitemap.ts`, `src/app/robots.ts` |
+| Per-page noindex and canonical | `src/app/privacy/page.tsx` |
 
 All of them derive their URLs from `SITE_URL` in `src/content/site.ts`, which is why the apex is the
 canonical host — see [operations.md](./operations.md#domains).
