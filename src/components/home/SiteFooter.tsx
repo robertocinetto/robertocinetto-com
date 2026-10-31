@@ -6,6 +6,8 @@ import {
   NAME,
   PRIVACY_LABEL,
   PRIVACY_PATH,
+  PRODUCTS_LABEL,
+  PRODUCTS_PATH,
 } from "@/content/site";
 
 import Shell from "./Shell";
@@ -34,6 +36,10 @@ const SiteFooter = () => (
         >
           LinkedIn
         </ExternalLink>
+        {/* The only navigation the site has: plain anchors, no header. */}
+        <a href={PRODUCTS_PATH} className={linkClassName}>
+          {PRODUCTS_LABEL}
+        </a>
         {/* A plain anchor, not next/link: the site has no client-side routing
             and this link doesn't justify adding it. Untracked on purpose, since
             it is neither a lead nor a social click. It also puts the policy one

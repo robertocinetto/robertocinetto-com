@@ -11,14 +11,14 @@ build time:
 | Route | Source |
 | --- | --- |
 | `/` | `src/app/page.tsx` |
+| `/products` | `src/app/products/page.tsx`, copy in `src/content/products.ts` (one band per product, anchor `/products#<id>`, in the sitemap) |
 | `/privacy` | `src/app/privacy/page.tsx` (noindex, not in the sitemap; see [below](#the-privacy-page)) |
 | `/opengraph-image` | `src/app/opengraph-image.tsx` (1200×630 PNG, generated at build) |
 | `/icon.svg` | `src/app/icon.svg` (App Router file convention, becomes the favicon) |
 | `/sitemap.xml`, `/robots.txt` | `src/app/sitemap.ts`, `src/app/robots.ts` |
 
-There is **no navigation and no header**. The page is one uninterrupted scroll. Section anchor ids
-(`#services`, `#work`, `#agencies`, `#background`, `#contact`) exist but nothing links to them. The
-one link between routes is the footer's plain-anchor link to `/privacy`.
+There is **no header**; the footer's plain anchors to `/products` and `/privacy` are the only navigation. The page is one uninterrupted scroll. Section anchor ids
+(`#services`, `#work`, `#agencies`, `#background`, `#contact`) exist but nothing links to them. 
 
 ## The privacy page
 
