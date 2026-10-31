@@ -31,6 +31,14 @@ export const CTA_PRIMARY = "Book a 30-minute call";
 export const PRIVACY_PATH = "/privacy";
 export const PRIVACY_LABEL = "Privacy";
 
+/**
+ * The products page. Polar, where the products are sold, links here from the
+ * seller profile, so people who see "Roberto Cinetto" on a receipt can find
+ * what they bought. Each product has an anchor (`/products#soffio`).
+ */
+export const PRODUCTS_PATH = "/products";
+export const PRODUCTS_LABEL = "Products";
+
 export const LOCALITY = "North Vancouver";
 export const REGION = "BC";
 export const COUNTRY = "CA";

@@ -18,6 +18,7 @@ All content is typed TypeScript under `src/content/`. There is no CMS: edit a fi
 | `background.ts` | The Background paragraphs, plus eyebrow and heading. |
 | `contact.ts` | The closing heading and body. |
 | `testimonials.ts` | The testimonial band. Off by default — see below. |
+| `products.ts` | The `/products` page: heading, lead, and each product (name, description, facts, icon, links, support address). Facts come from the product's own site; no price on purpose. |
 | `privacy.ts` | The `/privacy` page: intro, effective date, and each section's topics, with links as data. No em dashes. The Limited Use sentence is Google's required wording; do not edit it for voice. |
 
 **Every section component reads from exactly one of these and holds no copy of its own.** A
