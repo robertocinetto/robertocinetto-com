@@ -38,6 +38,16 @@ export const productsPage = {
   heading: "Products",
   description: `Apps I make and sell myself. Soffio is dictation for Mac, by ${NAME}.`,
   lead: `Software I make and sell myself, as ${NAME}. The client work is on the home page.`,
+  intro:
+    "Besides working with clients, I build my own products: I design them, write them, ship them and support the people who use them. Each one has its own site, linked below.",
+} as const;
+
+/** The home page band that points here. */
+export const homeProducts = {
+  label: "Products",
+  heading: "Apps I build and sell myself",
+  lead: "Alongside client work, I’m an independent developer making my own software, from the first sketch to the support inbox.",
+  linkLabel: "All products",
 } as const;
 
 export const products: Product[] = [

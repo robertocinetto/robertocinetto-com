@@ -2,6 +2,7 @@ import AgencyTerms from "@/components/home/AgencyTerms";
 import Background from "@/components/home/Background";
 import Contact from "@/components/home/Contact";
 import Hero from "@/components/home/Hero";
+import Products from "@/components/home/Products";
 import ProofBar from "@/components/home/ProofBar";
 import SelectedWork from "@/components/home/SelectedWork";
 import Services from "@/components/home/Services";
@@ -12,8 +13,8 @@ import { testimonials } from "@/content/testimonials";
 
 /* Bands alternate night and panel all the way down, and that alternation is the
    only divider the page has — night (hero), panel (proof), night (services and
-   work, which share one band), panel (agencies), night (background), panel
-   (contact), night (footer). The testimonial slot is off, which keeps that
+   work, which share one band), panel (agencies), night (background and products, which share
+   one band), panel (contact), night (footer). The testimonial slot is off, which keeps that
    sequence intact; turning it on puts a panel band directly before the agencies
    panel, so give the agencies band `surface="night"` at the same time. */
 const Home = () => (
@@ -26,6 +27,7 @@ const Home = () => (
       {testimonials.enabled ? <Testimonials /> : null}
       <AgencyTerms />
       <Background />
+      <Products />
       <Contact />
     </main>
     <SiteFooter />
