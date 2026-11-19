@@ -1,0 +1,46 @@
+schema: 1
+identity:
+  slug: robertocinetto-com
+  name: robertocinetto.com
+  area: personal
+  kind: web
+  repo_map: Clients/RobertoCinetto/robertocinetto.com/2026
+commands:
+  setup: pnpm install --frozen-lockfile
+  dev: pnpm dev
+  test: null   # no test suite in the repo
+  check: pnpm run lint && pnpm run build && pnpm exec tsc --noEmit   # tsc after the build: a fresh clone gets next-env.d.ts and .next/types from it
+  e2e: null
+  build: pnpm build
+  preview: pnpm build && pnpm start
+  deploy:
+    run: git push origin main   # Vercel git integration deploys main to production
+    human_only: true
+runtime:
+  ports:
+    dev: 3000
+  services: []
+  env_files: []
+  secrets: {}
+  db:
+    strategy: none
+needs:
+  macos: false
+  simulator: false
+  gpu: false
+  docker: false
+  network: true
+  leases: []
+links:
+  clickup: null
+  vault: 02-Personal/business/robertocinetto/projects/robertocinetto-com/robertocinetto-com.md
+  github: robertocinetto/robertocinetto-com
+agent:
+  profile: null
+  no_automerge: false
+  max_concurrency: 3
+  entry: "just check, then read AGENTS.md"
+  never_touch:
+    - .env*
+    - .vercel/
+    - .next/
